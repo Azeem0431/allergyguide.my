@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utama | AllergyGuide.my</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0094D4 0%, #0076aa 100%);
+        }
+        /* Custom scrollbar untuk ruangan chat */
+        .chat-container::-webkit-scrollbar { width: 4px; }
+        .chat-container::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 10px; }
+        
+        /* Smooth transition untuk sidebar */
+        #sidebar { transition: transform 0.3s ease-in-out; }
+
+        .emergency-blink { animation: blink 1.5s infinite; }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+    </style>
+</head>
+<body class="bg-[#F8FAFC] text-gray-800">
+
+    <div id="sidebarOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/50 z-[60] hidden transition-opacity"></div>
+
+    <aside id="sidebar" class="fixed top-0 left-0 h-full w-72 bg-white z-[70] shadow-2xl transform -translate-x-full lg:hidden">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-10">
+                <h2 class="text-xl font-black text-[#0094D4]">Menu Utama</h2>
+                <button onclick="toggleSidebar()" class="text-gray-400 hover:text-red-500 text-2xl transition">&times;</button>
+            </div>
+            
+            <nav class="space-y-4">
+                <a href="FirstPage.HTML" class="flex items-center space-x-3 p-3 rounded-xl bg-blue-50 text-[#0094D4] font-bold">
+                    <span>🏠 Utama</span>
+                </a>
+                <a href="categories.html" class="flex items-center space-x-3 p-3 rounded-xl text-gray-600 hover:bg-gray-50 font-semibold transition">
+                    <span>🔍 Kategori Alahan</span>
+                </a>
+                <a href="tips-rawatan.html" class="flex items-center space-x-3 p-3 rounded-xl text-gray-600 hover:bg-gray-50 font-semibold transition">
+                    <span>💊 Tips & Rawatan</span>
+                </a>
+                
+                <hr class="my-4 border-gray-100">
+                
+                <a href="login.html" class="flex items-center space-x-3 p-3 rounded-xl text-gray-500 hover:bg-gray-50 font-medium transition text-sm">
+                    <span>⚙️ Admin Login</span>
+                </a>
+
+                <div class="pt-4">
+                    <p class="text-xs font-bold text-gray-400 uppercase tracking-widest px-3 mb-2">Kecemasan</p>
+                    <a href="tel:999" class="flex items-center space-x-3 p-3 rounded-xl bg-red-50 text-red-600 font-bold transition">
+                        <span>☎️ Hubungi 999</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </aside>
+
+    <header class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleSidebar()" class="md:hidden text-gray-600 focus:outline-none p-1 hover:bg-gray-100 rounded-lg transition">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+                <h1 class="text-2xl font-extrabold text-[#0094D4]">AllergyGuide.My</h1>
+            </div>
+            <nav class="hidden md:flex space-x-8 font-semibold text-gray-600">
+                <a href="FirstPage.HTML" class="text-[#0094D4]">Utama</a>
+                <a href="categories.html" class="hover:text-[#0094D4] transition">Kategori Alahan</a>
+                <a href="tips-rawatan.html" class="hover:text-[#0094D4] transition">Tips & Rawatan</a>
+            </nav>
+
+            <a href="login.html" class="flex items-center gap-1 text-gray-400 hover:text-gray-600 transition text-sm font-medium border-l pl-8 ml-2">
+        <span>⚙️</span> Admin
+    </a>
+            
+          <div class="flex items-center gap-4">
+    <div class="flex bg-gray-100 p-1 rounded-full border border-gray-200">
+        <a href="FirstPage.HTML" class="px-3 py-1 rounded-full text-xs font-bold transition-all bg-white shadow-sm text-blue-600">BM</a>
+        <a href="en-FirstPage.html" class="px-3 py-1 rounded-full text-xs font-bold transition-all text-gray-500 hover:text-blue-600">EN</a>
+    </div>
+
+    <a href="tel:999" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold text-sm emergency-blink flex items-center gap-2">
+        <span>☎️</span> KECEMASAN 999
+    </a>
+</div>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'ms'}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            </div>
+            
+        </div>
+    </header>
+
+    <section class="hero-gradient text-white py-20 px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center relative z-10">
+            <div class="md:w-1/2 space-y-6">
+                <span class="bg-white/20 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
+                    Panduan Kesihatan Malaysia
+                </span>
+                <h2 class="text-5xl md:text-6xl font-black leading-tight">
+                    Fahami Alahan Anda, <br>Lindungi Diri Anda.
+                </h2>
+                <p id="display-announcement" class="text-blue-100 text-lg max-w-lg">
+                Dapatkan maklumat tepat mengenai pelbagai jenis alahan, daripada makanan sehingga persekitaran.
+                </p>
+
+                <div class="max-w-md pt-4">
+        <div class="relative group">
+            <input type="text" id="searchInput" onkeyup="performSearch()" placeholder="Cari jenis alahan (cth: kacang, habuk)..." 
+                class="w-full px-6 py-4 rounded-2xl text-gray-800 shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/20 transition-all">
+            
+            <button class="absolute right-2 top-2 bottom-2 bg-[#0094D4] hover:bg-[#0076aa] px-6 rounded-xl text-white font-bold transition-colors">
+                Cari
+            </button>
+
+            <div id="searchDropdown" class="hidden absolute left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl z-50 overflow-hidden border border-gray-100">
+                <ul id="searchResults" class="max-height-60 overflow-y-auto">
+                    </ul>
+            </div>
+        </div>
+    </div>
+</div>
+            <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center">
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-white/10 rounded-full blur-3xl"></div>
+                    <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800" alt="Health Guide" class="rounded-[40px] shadow-2xl border-8 border-white/10 w-full max-w-md">
+                    <div id="tip-box" class="hidden absolute -bottom-6 -left-6 bg-white p-6 rounded-3xl shadow-2xl border border-blue-50 max-w-[250px] text-left">
+                        <p class="text-[10px] font-bold text-orange-500 uppercase mb-1">Tips Dari Admin 💡</p>
+                        <h4 id="display-tip-title" class="text-gray-900 font-bold text-sm leading-tight"></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute right-[-100px] bottom-[-100px] w-[400px] h-[400px] border-[40px] border-white/5 rounded-full"></div>
+    </section>
+
+    <section class="py-20 max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h3 class="text-3xl font-black text-[#1A2E44]">Kenapa AllergyGuide.My?</h3>
+            <p class="text-gray-500 mt-4">Kami menyediakan sumber rujukan yang mudah difahami untuk rakyat Malaysia.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-10 rounded-[32px] shadow-sm border border-gray-100 hover:shadow-md transition">
+                <div class="bg-blue-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-[#0094D4]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                <h4 class="text-xl font-bold text-[#1A2E44] mb-3">Maklumat Sahih</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">Info yang dikumpul daripada sumber kesihatan yang dipercayai untuk rujukan anda.</p>
+            </div>
+
+            <div class="bg-white p-10 rounded-[32px] shadow-sm border border-gray-100 hover:shadow-md transition">
+                <div class="bg-green-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                </div>
+                <h4 class="text-xl font-bold text-[#1A2E44] mb-3">Kategori Lengkap</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">Daripada alahan makanan hingga ubat-ubatan, semuanya disusun mengikut kategori.</p>
+            </div>
+
+            <a href="tips-rawatan.html" class="bg-white p-10 rounded-[32px] shadow-sm border border-gray-100 hover:shadow-md hover:border-orange-200 transition group text-left">
+                <div class="bg-orange-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-orange-100 transition">
+                    <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h4 class="text-xl font-bold text-[#1A2E44] mb-3">Panduan Pantas</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">Ketahui apa yang perlu dilakukan apabila berlaku tindak balas alahan kecemasan. <span class="text-orange-500 font-bold">Klik sini →</span></p>
+            </a>
+        </div>
+    </section>
+
+    <section class="bg-blue-50 py-12 px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+            <h4 class="text-4xl font-black text-[#0094D4]">1 dari 5</h4>
+            <p class="text-gray-600 text-sm mt-2">Kanak-kanak Malaysia alami Ekzema</p>
+        </div>
+        <div>
+            <h4 class="text-4xl font-black text-[#0094D4]">400+</h4>
+            <p class="text-gray-600 text-sm mt-2">Jenis ubat boleh cetus alahan</p>
+        </div>
+        <div>
+            <h4 class="text-4xl font-black text-[#0094D4]">24/7</h4>
+            <p class="text-gray-600 text-sm mt-2">Akses maklumat kecemasan</p>
+        </div>
+        <div>
+            <h4 class="text-4xl font-black text-[#0094D4]">Top 3</h4>
+            <p class="text-gray-600 text-sm mt-2">Alahan: Seafood, Kacang, Susu</p>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <h3 class="text-3xl font-black text-[#1A2E44]">Kategori Popular</h3>
+                <p class="text-gray-500 mt-2">Terokai panduan mengikut jenis alahan spesifik.</p>
+            </div>
+            <a href="categories.html" class="text-[#0094D4] font-bold hover:underline">Lihat Semua →</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="group relative overflow-hidden rounded-3xl h-80 shadow-lg">
+                <img src="https://images-je.jomexplore.io/wp-content/uploads/2023/04/a285f4c0.jpg?auto=format&w=1053" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+                    <h4 class="text-white text-2xl font-bold">Alahan Makanan</h4>
+                    <p class="text-gray-300 text-sm">Kacang, Seafood, Gluten & Produk Tenusu.</p>
+                </div>
+            </div>
+
+            <div class="group relative overflow-hidden rounded-3xl h-80 shadow-lg">
+                <img src="https://png.pngtree.com/thumb_back/fw800/background/20250323/pngtree-man-sneezes-spreading-germs-with-upper-respiratory-symptoms-during-seasonal-allergies-photo-photo-image_69570976.webp" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+                    <h4 class="text-white text-2xl font-bold">Pernafasan</h4>
+                    <p class="text-gray-300 text-sm">Hama debu, Bulu haiwan & Debunga.</p>
+                </div>
+            </div>
+
+            <div class="group relative overflow-hidden rounded-3xl h-80 shadow-lg">
+                <img src="https://apicms.mstar.com.my/uploads/images/2023/03/04/1965400.jpg" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+                    <h4 class="text-white text-2xl font-bold">Kulit & Ekzema</h4>
+                    <p class="text-gray-300 text-sm">Ruam, Gatal-gatal & Penjagaan kulit sensitif.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-red-50">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2">
+            <h3 class="text-3xl font-black text-red-600 mb-6">Tanda Amaran Anafilaksis</h3>
+            <div class="space-y-4">
+                <div class="flex items-start gap-4 bg-white p-4 rounded-2xl shadow-sm border-l-8 border-red-500">
+                    <span class="text-2xl">🫁</span>
+                    <div>
+                        <h5 class="font-bold">Sesak Nafas Melampau</h5>
+                        <p class="text-sm text-gray-600">Bunyi 'wheezing' atau bengkak di tekak/lidah.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 bg-white p-4 rounded-2xl shadow-sm border-l-8 border-red-500">
+                    <span class="text-2xl">😵‍💫</span>
+                    <div>
+                        <h5 class="font-bold">Pening atau Pengsan</h5>
+                        <p class="text-sm text-gray-600">Tekanan darah menurun mendadak secara tiba-tiba.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 bg-white p-4 rounded-2xl shadow-sm border-l-8 border-red-500">
+                    <span class="text-2xl">❤️‍🩹</span>
+                    <div>
+                        <h5 class="font-bold">Tindakan Segera</h5>
+                        <p class="text-sm text-gray-600">Gunakan EpiPen (jika ada) dan hubungi 999 dengan segera!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="md:w-1/2">
+             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBZY52e5pzxcUWVyzjq8ln00AE4IbKEGH8dw&s" alt="Emergency" class="rounded-3xl shadow-2xl">
+        </div>
+    </div>
+</section>
+
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <h3 class="text-3xl font-black text-[#1A2E44] mb-10">Mitos vs Fakta Alahan</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-red-50 p-6 rounded-3xl border border-red-100 text-left">
+                <span class="text-red-500 font-black">MITOS ❌</span>
+                <p class="text-gray-800 font-bold mt-2">"Alahan hanyalah ruam kecil dan akan hilang sendiri."</p>
+                <p class="text-gray-600 text-sm mt-2">Kenyataan ini bahaya. Alahan boleh melarat menjadi sesak nafas (Anafilaksis) dalam masa beberapa minit.</p>
+            </div>
+            <div class="bg-green-50 p-6 rounded-3xl border border-green-100 text-left">
+                <span class="text-green-500 font-black">FAKTA ✅</span>
+                <p class="text-gray-800 font-bold mt-2">"Setiap badan mempunyai tindak balas berbeza."</p>
+                <p class="text-gray-600 text-sm mt-2">Alahan boleh muncul pada bila-bila masa walaupun anda tidak pernah mengalaminya sebelum ini.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-16 bg-blue-50">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2">
+            <h3 class="text-3xl font-black text-[#1A2E44]">Alahan atau Intoleransi?</h3>
+            <p class="text-gray-600 mt-4">Ramai keliru antara alahan makanan dengan intoleransi makanan (seperti intoleransi laktosa).</p>
+            <ul class="mt-6 space-y-3">
+                <li class="flex items-center gap-3 font-semibold text-red-600">⚠️ Alahan: Melibatkan sistem imun (Bahaya).</li>
+                <li class="flex items-center gap-3 font-semibold text-orange-600">🤢 Intoleransi: Melibatkan sistem penghadaman (Sakit perut).</li>
+            </ul>
+        </div>
+        <div class="md:w-1/2 bg-white p-8 rounded-[40px] shadow-xl border border-blue-100">
+            <img src="https://images.unsplash.com/photo-1551326844-4df70f78d0e9?w=500" class="rounded-2xl mb-4" alt="Food">
+            <p class="text-center italic text-sm text-gray-500">"Tahu perbezaan boleh menyelamatkan nyawa anda."</p>
+        </div>
+    </div>
+</section>
+<section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-6 text-center bg-orange-50 p-10 rounded-[40px] border border-orange-100">
+        <h3 class="text-2xl font-black text-orange-900 mb-4">Tahukah Anda? (Alahan Silang)</h3>
+        <p class="text-orange-800 italic">"Jika anda alah kepada susu lembu, anda mempunyai 90% kemungkinan untuk alah kepada susu kambing."</p>
+        <div class="mt-6 text-sm text-orange-700">
+            Penyakit ini dipanggil 'Cross-Reactivity' di mana protein bahan berbeza dikesan sebagai benda yang sama oleh sistem imun anda.
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-left mb-12">
+            <h3 class="text-3xl font-black text-[#1A2E44]">Zon Bebas Alahan di Rumah</h3>
+            <p class="text-gray-500 mt-2">Ubah ruang kediaman anda menjadi persekitaran yang lebih sihat dan selamat.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="group relative overflow-hidden rounded-[32px] h-96 shadow-lg transition-transform hover:-translate-y-2">
+                <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600" alt="Bilik Tidur" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-8 flex flex-col justify-end">
+                    <div class="bg-blue-500 w-12 h-12 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+                        <span class="text-2xl">🛏️</span>
+                    </div>
+                    <h4 class="text-white text-xl font-extrabold">Bilik Tidur</h4>
+                    <p class="text-gray-300 text-sm mt-2 leading-relaxed">Cuci cadar dengan air panas 60°C setiap minggu untuk membunuh hama habuk.</p>
+                </div>
+            </div>
+
+            <div class="group relative overflow-hidden rounded-[32px] h-96 shadow-lg transition-transform hover:-translate-y-2">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQnh-kKqRDnN7BTytF7sJCAP0e7EV9xS6LIQ&s" alt="Langsir" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-8 flex flex-col justify-end">
+                    <div class="bg-blue-500 w-12 h-12 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+                        <span class="text-2xl">🪟</span>
+                    </div>
+                    <h4 class="text-white text-xl font-extrabold">Langsir & Tingkap</h4>
+                    <p class="text-gray-300 text-sm mt-2 leading-relaxed">Gunakan 'blinds' atau langsir nipis yang mudah dilap dan tidak memerangkap habuk.</p>
+                </div>
+            </div>
+
+            <div class="group relative overflow-hidden rounded-[32px] h-96 shadow-lg transition-transform hover:-translate-y-2">
+                <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=600" alt="Ruang Tamu" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-8 flex flex-col justify-end">
+                    <div class="bg-blue-500 w-12 h-12 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+                        <span class="text-2xl">🛋️</span>
+                    </div>
+                    <h4 class="text-white text-xl font-extrabold">Ruang Tamu</h4>
+                    <p class="text-gray-300 text-sm mt-2 leading-relaxed">Elakkan karpet berbulu tebal. Gunakan lantai kayu atau jubin yang mudah divakum.</p>
+                </div>
+            </div>
+
+            <div class="group relative overflow-hidden rounded-[32px] h-96 shadow-lg transition-transform hover:-translate-y-2">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdNunanRbAsP3AZ0K8EJfYqkV9fBvysVqUNg&s" alt="Penapis Udara" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-8 flex flex-col justify-end">
+                    <div class="bg-blue-500 w-12 h-12 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+                        <span class="text-2xl">🧼</span>
+                    </div>
+                    <h4 class="text-white text-xl font-extrabold">Kualiti Udara</h4>
+                    <p class="text-gray-300 text-sm mt-2 leading-relaxed">Pasang penapis udara dengan filter HEPA untuk menapis debunga dan bulu haiwan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+        <h3 class="text-3xl font-black text-[#1A2E44] mb-8">Tips Makan Di Restoran</h3>
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600" class="rounded-3xl">
+            <div class="space-y-4">
+                <p class="flex items-center gap-3">✅ <b>Tanya Bahan:</b> Jangan malu bertanya jika sos ada belacan/kacang.</p>
+                <p class="flex items-center gap-3">✅ <b>Perhati Minyak:</b> Adakah minyak goreng udang digunakan untuk ayam anda?</p>
+                <p class="flex items-center gap-3">✅ <b>Bawa Kad Alahan:</b> Tunjukkan nota bertulis kepada pelayan.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+        <h3 class="text-3xl font-black text-[#1A2E44] text-center mb-12">Bagaimana Alahan Terjadi?</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center">
+            <div class="space-y-4">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto text-2xl">🦠</div>
+                <h4 class="font-bold">1. Pendedahan</h4>
+                <p class="text-sm text-gray-500">Bahan asing (alergen) masuk ke dalam badan melalui udara, sentuhan atau makanan.</p>
+            </div>
+            <div class="space-y-4">
+                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto text-2xl">🛡️</div>
+                <h4 class="font-bold">2. Antibodi IgE</h4>
+                <p class="text-sm text-gray-600">Sistem imun tersalah anggap ia sebagai ancaman dan menghasilkan antibodi IgE.</p>
+            </div>
+            <div class="space-y-4">
+                <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto text-2xl">💥</div>
+                <h4 class="font-bold">3. Pelepasan Histamin</h4>
+                <p class="text-sm text-gray-600">Sel melepaskan bahan kimia (Histamin) yang menyebabkan gatal, bengkak, dan bersin.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-16 bg-slate-900 text-white rounded-[50px] mx-6">
+    <div class="max-w-7xl mx-auto px-10 flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2">
+            <h3 class="text-3xl font-black mb-6">Alahan di Tempat Kerja?</h3>
+            <p class="text-slate-400 mb-6">Sesetengah pekerjaan berisiko tinggi terdedah kepada alergen industri.</p>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="border border-slate-700 p-4 rounded-2xl">
+                    <p class="font-bold">🩺 Kesihatan</p>
+                    <p class="text-xs text-slate-500">Alahan sarung tangan lateks.</p>
+                </div>
+                <div class="border border-slate-700 p-4 rounded-2xl">
+                    <p class="font-bold">👩‍🍳 Bakeri</p>
+                    <p class="text-xs text-slate-500">Asma disebabkan debu tepung.</p>
+                </div>
+            </div>
+        </div>
+        <div class="md:w-1/2">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500" class="rounded-3xl opacity-80" alt="Workplace">
+        </div>
+    </div>
+</section>
+
+
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+        <div class="w-full md:w-1/2">
+            <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&q=80&w=800" 
+                 alt="Skincare Ingredients" 
+                 class="rounded-2xl shadow-xl">
+        </div>
+
+        <div class="w-full md:w-1/2 text-center md:text-left">
+            <h3 class="text-3xl font-black mb-4">Bahan Kosmetik Merbahaya</h3>
+            <p class="text-gray-500 mb-8">Jika anda mempunyai kulit sensitif, elakkan bahan ini untuk mengelakkan iritasi jangka masa panjang:</p>
+            
+            <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                <span class="px-6 py-2 bg-pink-50 text-pink-600 rounded-full border border-pink-100 font-bold">Fragrance/Parfum</span>
+                <span class="px-6 py-2 bg-pink-50 text-pink-600 rounded-full border border-pink-100 font-bold">Parabens</span>
+                <span class="px-6 py-2 bg-pink-50 text-pink-600 rounded-full border border-pink-100 font-bold">Sulfates (SLS)</span>
+                <span class="px-6 py-2 bg-pink-50 text-pink-600 rounded-full border border-pink-100 font-bold">Formaldehyde</span>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-24 bg-emerald-50">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row-reverse items-center gap-16">
+        <div class="md:w-5/12">
+            <span class="text-emerald-600 font-bold uppercase tracking-widest text-xs">Aktiviti Fizikal</span>
+            <h3 class="text-4xl font-black text-emerald-900 mt-2 leading-tight">Alahan Semasa Bersukan?</h3>
+            <p class="text-emerald-700 mt-4 font-bold italic bg-emerald-100 inline-block px-3 py-1 rounded-lg">
+                Exercise-Induced Urticaria
+            </p>
+            <p class="text-gray-600 mt-6 leading-relaxed">
+                Pernahkah anda rasa gatal melampau atau sesak nafas hanya selepas berlari? Ia mungkin bukan sekadar penat, tetapi tindak balas badan terhadap suhu atau persekitaran sukan tertentu.
+            </p>
+            <div class="mt-8 p-5 bg-white rounded-2xl border-l-4 border-emerald-500 shadow-sm">
+                <p class="text-sm text-gray-700 font-medium italic">"Jangan paksa diri jika kulit mula naik ruam merah semasa bersenam."</p>
+            </div>
+        </div>
+
+        <div class="md:w-7/12 grid grid-cols-2 gap-4">
+            <div class="relative group h-44 rounded-3xl overflow-hidden shadow-md">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLjv9fEqZa-fzqMpN90JvdspSiFqNoYCO6XQ&s" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Swimming">
+                <div class="absolute inset-0 bg-emerald-900/60 flex flex-col items-center justify-center p-4 text-center">
+                    <p class="text-3xl mb-1">🏊‍♂️</p>
+                    <p class="text-white font-bold text-sm">Sensitiviti Klorin</p>
+                    <p class="text-emerald-200 text-[10px] mt-1 italic">Iritasi mata & kulit</p>
+                </div>
+            </div>
+
+            <div class="relative group h-44 rounded-3xl overflow-hidden shadow-md">
+                <img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=400" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Running">
+                <div class="absolute inset-0 bg-orange-900/60 flex flex-col items-center justify-center p-4 text-center">
+                    <p class="text-3xl mb-1">🏃‍♂️</p>
+                    <p class="text-white font-bold text-sm">Suhu Badan</p>
+                    <p class="text-orange-200 text-[10px] mt-1 italic">Haba cetus gatal</p>
+                </div>
+            </div>
+
+            <div class="relative group h-44 rounded-3xl overflow-hidden shadow-md">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Gym">
+                <div class="absolute inset-0 bg-blue-900/60 flex flex-col items-center justify-center p-4 text-center">
+                    <p class="text-3xl mb-1">🧤</p>
+                    <p class="text-white font-bold text-sm">Alahan Getah</p>
+                    <p class="text-blue-200 text-[10px] mt-1 italic">Lateks pada alatan</p>
+                </div>
+            </div>
+
+            <div class="relative group h-44 rounded-3xl overflow-hidden shadow-md">
+                <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=400" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Nature">
+                <div class="absolute inset-0 bg-green-900/60 flex flex-col items-center justify-center p-4 text-center">
+                    <p class="text-3xl mb-1">🌳</p>
+                    <p class="text-white font-bold text-sm">Debunga & Spora</p>
+                    <p class="text-green-200 text-[10px] mt-1 italic">Sukan luar rumah</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <h3 class="text-4xl font-black text-[#1A2E44] mb-4">Superfood Anti-Radang</h3>
+        <p class="text-gray-500 max-w-2xl mx-auto mb-16">
+            Amalkan makanan ini dalam diet harian untuk membantu menenangkan sistem imun dan mengurangkan kesan keradangan akibat alahan.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="group">
+                <div class="relative h-64 rounded-[40px] overflow-hidden shadow-sm transition-all duration-500 group-hover:shadow-xl group-hover:-translate-y-2">
+                    <img src="https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?w=500" alt="Honey" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-orange-900/80 to-transparent flex items-end justify-center pb-6">
+                        <span class="text-white font-black text-xl">Madu Asli</span>
+                    </div>
+                </div>
+                <div class="mt-4 px-4">
+                    <p class="text-sm font-bold text-orange-600 uppercase tracking-tighter">Imuniti</p>
+                    <p class="text-xs text-gray-500 mt-1 italic">Membantu badan membina toleransi terhadap debunga tempatan.</p>
+                </div>
+            </div>
+
+            <div class="group">
+                <div class="relative h-64 rounded-[40px] overflow-hidden shadow-sm transition-all duration-500 group-hover:shadow-xl group-hover:-translate-y-2">
+                    <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500" alt="Turmeric" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-yellow-900/80 to-transparent flex items-end justify-center pb-6">
+                        <span class="text-white font-black text-xl">Kunyit</span>
+                    </div>
+                </div>
+                <div class="mt-4 px-4">
+                    <p class="text-sm font-bold text-yellow-600 uppercase tracking-tighter">Kurkumin</p>
+                    <p class="text-xs text-gray-500 mt-1 italic">Agen anti-radang semulajadi yang sangat kuat untuk paru-paru.</p>
+                </div>
+            </div>
+
+            <div class="group">
+                <div class="relative h-64 rounded-[40px] overflow-hidden shadow-sm transition-all duration-500 group-hover:shadow-xl group-hover:-translate-y-2">
+                    <img src="https://assets.epicurious.com/photos/62d6c5146b6e74298a39d06a/4:3/w_4031,h_3023,c_limit/BakedSalmon_RECIPE_04142022_9780_final.jpg" alt="Salmon" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent flex items-end justify-center pb-6">
+                        <span class="text-white font-black text-xl">Omega-3</span>
+                    </div>
+                </div>
+                <div class="mt-4 px-4">
+                    <p class="text-sm font-bold text-blue-600 uppercase tracking-tighter">Lemak Sihat</p>
+                    <p class="text-xs text-gray-500 mt-1 italic">Terdapat dalam ikan dan kacang untuk mengurangkan gatal kulit.</p>
+                </div>
+            </div>
+
+            <div class="group">
+                <div class="relative h-64 rounded-[40px] overflow-hidden shadow-sm transition-all duration-500 group-hover:shadow-xl group-hover:-translate-y-2">
+                    <img src="https://images-prod.healthline.com/hlcmsresource/images/AN_images/reasons-to-eat-berries-1296x728-feature.jpg" alt="Berries" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent flex items-end justify-center pb-6">
+                        <span class="text-white font-black text-xl">Berries</span>
+                    </div>
+                </div>
+                <div class="mt-4 px-4">
+                    <p class="text-sm font-bold text-purple-600 uppercase tracking-tighter">Antioksidan</p>
+                    <p class="text-xs text-gray-500 mt-1 italic">Mengandungi kuersetin yang bertindak sebagai antihistamin semulajadi.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2 order-2 md:order-1">
+            <img src="https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?w=500" class="rounded-[40px]" alt="Mental Health">
+        </div>
+        <div class="md:w-1/2 order-1 md:order-2">
+            <h3 class="text-3xl font-black text-[#1A2E44]">Bukan Sekadar Fizikal</h3>
+            <p class="text-gray-600 mt-4 leading-relaxed">Pesakit alahan kronik sering mengalami tekanan mental dan kebimbangan berlebihan terhadap makanan. Kami di sini untuk memberi sokongan moral dan komuniti.</p>
+        </div>
+    </div>
+</section>
+
+<section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <h3 class="text-3xl font-black text-center mb-12 text-[#1A2E44]">Bagaimana Doktor Sahkan Alahan?</h3>
+        
+        <div class="grid md:grid-cols-3 gap-8 text-sm">
+            <div class="bg-white rounded-3xl shadow-sm border-t-4 border-blue-500 overflow-hidden hover:shadow-md transition-shadow">
+                <img src="https://childrenshealthhub.com.au/wp-content/uploads/2024/01/A-Skin-Prick-Test-In-Children-And-How-Its-Works.webp" 
+                     alt="Skin Prick Test" 
+                     class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h4 class="text-lg font-bold mb-2 text-gray-900">Skin Prick Test</h4>
+                    <p class="text-gray-500 leading-relaxed">
+                        Titisan alergen diletakkan pada kulit (biasanya di lengan) dan dicucuk sedikit untuk melihat jika reaksi ruam atau bengkak berlaku dalam masa 15-20 minit.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-sm border-t-4 border-red-500 overflow-hidden hover:shadow-md transition-shadow">
+                <img src="https://images.unsplash.com/photo-1615461066159-fea0960485d5?w=600&auto=format&fit=crop" 
+                     alt="Blood Test" 
+                     class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h4 class="text-lg font-bold mb-2 text-gray-900">Ujian Darah (IgE)</h4>
+                    <p class="text-gray-500 leading-relaxed">
+                        Sampel darah diambil untuk mengukur jumlah antibodi khusus (Immunoglobulin E) yang dihasilkan oleh sistem imun anda terhadap alergen tertentu.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-sm border-t-4 border-green-500 overflow-hidden hover:shadow-md transition-shadow">
+                <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=600&auto=format&fit=crop" 
+                     alt="Oral Food Challenge" 
+                     class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h4 class="text-lg font-bold mb-2 text-gray-900">Oral Food Challenge</h4>
+                    <p class="text-gray-500 leading-relaxed">
+                        Ujian paling tepat di mana pesakit memakan jumlah kecil makanan yang disyaki di bawah pengawasan ketat pakar perubatan di hospital untuk melihat reaksi nyata.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <p class="text-center text-gray-400 mt-10 italic">
+            *Nota: Sila rujuk pakar allergist atau imunologi untuk diagnosis yang tepat.
+        </p>
+    </div>
+</section>
+
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-10">
+        <div class="md:w-1/2">
+            <h3 class="text-3xl font-black">Sayang Kucing Tapi Bersin?</h3>
+            <p class="text-gray-500 mt-4">Alahan kucing sebenarnya berpunca dari protein dalam air liur (Fel d 1), bukan bulunya.</p>
+            <div class="mt-6 space-y-2">
+                <p class="text-sm">📌 Gunakan vakum dengan filter <b>HEPA</b>.</p>
+                <p class="text-sm">📌 Mandikan kucing sekurang-kurangnya sekali seminggu.</p>
+                <p class="text-sm">📌 Wujudkan "Zon Bebas Kucing" (terutama dalam bilik tidur).</p>
+            </div>
+        </div>
+        <div class="md:w-1/2">
+             <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=500" class="rounded-3xl" alt="Cat">
+        </div>
+    </div>
+</section>
+
+<section class="py-20 text-center">
+    <div class="max-w-3xl mx-auto px-6">
+        <h3 class="text-4xl font-black text-[#1A2E44] mb-6">Dapatkan Maklumat Lebih Mendalam</h3>
+        <p class="text-gray-500 mb-10">Pilih kategori yang paling berkaitan dengan anda sekarang untuk mula belajar cara lindungi diri.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="categories.html" class="bg-[#0094D4] text-white px-10 py-4 rounded-2xl font-bold shadow-lg hover:shadow-2xl transition">Cari Kategori</a>
+            <a href="tips-rawatan.html" class="bg-white border-2 border-gray-200 px-10 py-4 rounded-2xl font-bold hover:bg-gray-50 transition">Baca Tips</a>
+        </div>
+    </div>
+</section>
+
+
+    <div id="chatWidget" class="fixed bottom-6 right-6 z-[60]">
+        <button onclick="toggleChat()" class="bg-[#0094D4] hover:bg-[#007bb1] text-white p-4 rounded-full shadow-2xl transition-all transform hover:scale-110 flex items-center justify-center">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+        </button>
+
+        <div id="chatBox" class="hidden absolute bottom-20 right-0 w-80 md:w-96 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden flex flex-col transition-all">
+            <div class="bg-[#0094D4] p-5 text-white flex justify-between items-center">
+                <div>
+                    <h3 class="font-bold text-lg flex items-center">
+                        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse mr-2"></span>
+                        Allergy Assistant AI
+                    </h3>
+                    <p class="text-xs opacity-80">Aktif Sekarang</p>
+                </div>
+                <button onclick="toggleChat()" class="text-white text-xl">×</button>
+            </div>
+
+            <div class="p-4 bg-gray-50 h-80 overflow-y-auto chat-container flex flex-col space-y-4" id="chatMessages">
+                <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-gray-100 self-start max-w-[85%] text-sm text-gray-700">
+                    Hai! Saya Allergy Assistant. Ada sebarang kemusykilan tentang alahan? Taip soalan anda di bawah.
+                </div>
+            </div>
+
+            <div class="p-4 bg-white border-t">
+                <div class="flex space-x-2">
+                    <input type="text" id="aiQuery" placeholder="Taip soalan..." 
+                           class="flex-1 border border-gray-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-100"
+                           onkeypress="if(event.key === 'Enter') askAI()">
+                    <button onclick="askAI()" class="bg-[#1A2E44] text-white p-2 rounded-xl hover:bg-black transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" stroke="white"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <footer class="bg-[#0F172A] text-white pt-20 pb-10 px-6 relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#0094D4] to-transparent opacity-50"></div>
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-[#0094D4] opacity-[0.03] rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-600 opacity-[0.03] rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+        
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center pb-12 border-b border-gray-800/60 gap-6">
+            <div>
+                <h2 class="text-3xl font-black text-[#0094D4] tracking-tight">AllergyGuide<span class="text-white">.My</span></h2>
+                <p class="text-gray-400 text-sm mt-2">Panduan dipercayai anda untuk kesedaran dan kesihatan alahan.</p>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="w-10 h-10 rounded-xl bg-gray-800/50 flex items-center justify-center hover:bg-[#0094D4] hover:-translate-y-1 transition-all duration-300 border border-gray-700">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-xl bg-gray-800/50 flex items-center justify-center hover:bg-pink-600 hover:-translate-y-1 transition-all duration-300 border border-gray-700">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.247 2.242 1.308 3.607.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.332 2.633-1.308 3.608-.975.975-2.242 1.247-3.607 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.332-3.608-1.308-.975-.975-1.247-2.242-1.308-3.607-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608.975-.975 2.242-1.247 3.607-1.308 1.266-.058 1.646-.07 4.85-.07m0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.058-1.281.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.28-.059-1.689-.073-4.948-.073z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 py-16">
+            <div>
+                <h4 class="text-white font-bold mb-6 flex items-center uppercase tracking-wider text-xs">
+                    <span class="w-2 h-2 bg-[#0094D4] rounded-full mr-3"></span>Kategori Utama
+                </h4>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li><a href="food-details.html" class="hover:text-[#0094D4] hover:pl-2 transition-all duration-300">Alahan Makanan</a></li>
+                    <li><a href="skin-details.html" class="hover:text-[#0094D4] hover:pl-2 transition-all duration-300">Alahan Kulit (Ekzema)</a></li>
+                    <li><a href="respiratory-details.html" class="hover:text-[#0094D4] hover:pl-2 transition-all duration-300">Alahan Pernafasan</a></li>
+                    <li><a href="drug-details.html" class="hover:text-[#0094D4] hover:pl-2 transition-all duration-300">Alahan Ubat-ubatan</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-6 flex items-center uppercase tracking-wider text-xs">
+                    <span class="w-2 h-2 bg-[#0094D4] rounded-full mr-3"></span>Syarikat
+                </h4>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li><a href="about-us.html" class="hover:text-[#0094D4] hover:pl-2 transition-all duration-300">Tentang Kami</a></li>
+                    <li><a href="#" class="hover:text-[#0094D4] hover:pl-2 transition-all duration-300">Hubungi Kami</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-6 flex items-center uppercase tracking-wider text-xs">
+                    <span class="w-2 h-2 bg-[#0094D4] rounded-full mr-3"></span>Legaliti
+                </h4>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li><a href="privacy-policy.html" class="hover:text-[#0094D4] hover:pl-2 transition-all duration-300">Dasar Privasi</a></li>
+                    <li><a href="terms-conditions.html" class="hover:text-[#0094D4] hover:pl-2 transition-all duration-300">Terma & Syarat</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-6 flex items-center uppercase tracking-wider text-xs">
+                    <span class="w-2 h-2 bg-[#0094D4] rounded-full mr-3"></span>Bantuan
+                </h4>
+                <div class="bg-gray-800/40 p-4 rounded-2xl border border-gray-700/50">
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 rounded-lg bg-[#0094D4]/10 flex items-center justify-center text-[#0094D4] shrink-0">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        </div>
+                        <span class="text-[11px] text-gray-300 break-all leading-relaxed">BPJ241210438@student.kptm.edu.my</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-8 border-t border-gray-800">
+            <div class="flex flex-col lg:flex-row gap-8 items-center lg:items-start text-center lg:text-left">
+                <div class="flex-1">
+                    <p class="text-[11px] text-gray-500 leading-relaxed italic max-w-4xl">
+                        <strong class="text-gray-400 not-italic">PENAFIAN:</strong> Kandungan di AllergyGuide.My adalah untuk tujuan maklumat sahaja dan bukan pengganti nasihat perubatan profesional. Sentiasa dapatkan panduan daripada pakar alahan atau penyedia kesihatan yang berkelayakan untuk sebarang diagnosis atau rawatan perubatan.
+                    </p>
+                </div>
+                <div class="flex flex-col lg:items-end shrink-0">
+                    <p class="text-sm font-bold text-gray-300">© 2026 AllergyGuide.My</p>
+                    <p class="text-[10px] text-gray-500 uppercase tracking-[3px] mt-1">Sains • Kesedaran • Kesihatan</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  <script>
+        // API Key Mistral AI
+        const MISTRAL_API_KEY = "60WHWYBuGH4fxqEiYXQ8vI4UE1C27xdn";
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('-translate-x-full');
+            document.getElementById('sidebarOverlay').classList.toggle('hidden');
+        }
+
+        function toggleChat() {
+            document.getElementById('chatBox').classList.toggle('hidden');
+        }
+
+        function addMessage(message, type) {
+            const chatMessages = document.getElementById('chatMessages');
+            const style = type === 'user' ? "bg-[#0094D4] text-white ml-auto" : "bg-white text-gray-700 border";
+            chatMessages.innerHTML += `<div class="${style} p-3 rounded-2xl max-w-[85%] text-sm mb-2 shadow-sm">${message}</div>`;
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        async function askAI() {
+            const inputField = document.getElementById('aiQuery');
+            const chatMessages = document.getElementById('chatMessages');
+            const userText = inputField.value.trim();
+            if (!userText) return;
+
+            addMessage(userText, 'user');
+            inputField.value = "";
+
+            const loadingId = "loading-" + Date.now();
+            chatMessages.innerHTML += `<div id="${loadingId}" class="text-sm text-gray-400 italic mb-2">Mistral sedang menaip...</div>`;
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            try {
+                const response = await fetch("https://api.mistral.ai/v1/chat/completions", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
+                        "Authorization": `Bearer ${MISTRAL_API_KEY}`
+                    },
+                    body: JSON.stringify({
+                        model: "mistral-tiny",
+                        messages: [
+                            { role: "system", content: "Anda pakar AllergyAssistant. Jawab dalam Bahasa Melayu." },
+                            { role: "user", content: userText }
+                        ]
+                    })
+                });
+
+                const data = await response.json();
+                document.getElementById(loadingId).remove();
+
+                if (data.choices && data.choices[0].message.content) {
+                    addMessage(data.choices[0].message.content, 'ai');
+                } else if (data.error) {
+                    throw new Error(data.error.message);
+                }
+            } catch (error) {
+                console.error("Ralat Mistral:", error);
+                const loadingEl = document.getElementById(loadingId);
+                if (loadingEl) loadingEl.innerHTML = `<span class="text-red-500 text-xs italic">Ralat: ${error.message}</span>`;
+            }
+        }
+
+    
+        function performSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const resultsContainer = document.getElementById('searchResults');
+            const dropdown = document.getElementById('searchDropdown');
+
+            // Pangkalan Data Kata Kunci (Keyword Mapping)
+            const database = [
+        // 1. ALAHAN MAKANAN (ASAS)
+        { keywords: ['seafood', 'makanan laut', 'ikan', 'udang', 'ketam', 'sotong'], url: 'seafood-details.html', title: 'Alahan Makanan Laut' },
+        { keywords: ['shellfish', 'kerang', 'tiram', 'siput', 'kepah'], url: 'shellfish-details.html', title: 'Alahan Kerang-kerangan' },
+        { keywords: ['kacang', 'peanut', 'tanah', 'epipen', 'anaphylaxis'], url: 'peanut-details.html', title: 'Alahan Kacang Tanah' },
+        { keywords: ['treenut', 'badam', 'almond', 'gajus', 'hazelnut'], url: 'treenut-details.html', title: 'Alahan Kacang Pokok' },
+        { keywords: ['susu', 'milk', 'dairy', 'lembu', 'laktosa', 'keju'], url: 'milk-details.html', title: 'Alahan Susu Lembu' },
+        { keywords: ['soya', 'soy', 'tofu', 'kicap'], url: 'soy-details.html', title: 'Alahan Soya' },
+        { keywords: ['gandum', 'wheat', 'gluten', 'tepung', 'roti'], url: 'wheat-details.html', title: 'Alahan Gandum' },
+        
+        // 2. ALTERNATIF MASAKAN (GANTI TELUR)
+        { keywords: ['telur', 'ganti telur', 'baking', 'cuka', 'soda'], url: 'soda-vinegar-substitute.html', title: 'Ganti Telur: Soda & Cuka' },
+        { keywords: ['epal', 'applesauce', 'lenyek', 'buah', 'ganti telur'], url: 'applesauce-substitute.html', title: 'Ganti Telur: Epal Lenyek' },
+        { keywords: ['pisang', 'banana', 'lenyek', 'ganti telur'], url: 'banana-substitute.html', title: 'Ganti Telur: Pisang Lenyek' },
+        { keywords: ['chia', 'biji', 'seed', 'omega', 'ganti telur'], url: 'chia-substitute.html', title: 'Ganti Telur: Biji Chia' },
+        
+        // 3. PERNAFASAN & ASMA
+        { keywords: ['asma', 'asthma', 'sesak nafas', 'dada', 'inhaler'], url: 'asthma-guide.html', title: 'Panduan Pengurusan Asma' },
+        { keywords: ['nafas', 'teknik', 'breathe', 'tenang', 'paru-paru'], url: 'breathing-techniques.html', title: 'Teknik Pernafasan Alahan' },
+        { keywords: ['resdung', 'selesema', 'hidung', 'bersin', 'hama'], url: 'respiratory-details.html', title: 'Alahan Pernafasan' },
+        { keywords: ['ekzema', 'pernafasan', 'asma', 'hubungkait'], url: 'skin-respiratory.html', title: 'Ekzema & Hubungan Pernafasan' },
+        
+        // 4. KULIT, HAIWAN & DOKTOR
+        { keywords: ['kulit', 'gatal', 'ekzema', 'ruam', 'kurap', 'krim'], url: 'skin-details.html', title: 'Alahan Kulit' },
+        { keywords: ['kucing', 'anjing', 'haiwan', 'bulu', 'pet'], url: 'pet-details.html', title: 'Alahan Haiwan Peliharaan' },
+        { keywords: ['doktor', 'klinik', 'pakar', 'skin specialist', 'hospital'], url: 'doctor-finder.html', title: 'Cari Pakar Kulit (Doctor Finder)' },
+        
+        // 5. UBAT, DIET & TIPS RUMAH
+        { keywords: ['ubat', 'drug', 'penicillin', 'aspirin', 'antibiotik'], url: 'drug-details.html', title: 'Alahan Ubat (Drug Allergy)' },
+        { keywords: ['piriton', 'antihistamin', 'loratadine', 'rawatan'], url: 'rawatan-lanjut.html', title: 'Ensiklopedia Rawatan & Ubat' },
+        { keywords: ['diet', 'makan', 'sihat', 'anti-radang', 'nutrisi'], url: 'diet-allergy.html', title: 'Diet Anti-Radang' },
+        { keywords: ['suplemen', 'vitamin', 'probiotik', 'omega'], url: 'supplements-guide.html', title: 'Panduan Suplemen & Vitamin' },
+        { keywords: ['cuci', 'rumah', 'cleaning', 'habuk', 'hama'], url: 'home-cleaning-hacks.html', title: 'Tips Pembersihan Rumah' },
+        { keywords: ['tips', 'rawatan', 'pertolongan cemas', 'emergency'], url: 'tips-rawatan.html', title: 'Tips & Rawatan Alahan' },
+        { keywords: ['resipi', 'masak', 'diet', 'menu'], url: 'recipes-list.html', title: 'Resipi Anti-Radang' },
+        { keywords: ['kategori', 'senarai', 'jenis alahan'], url: 'categories.HTML', title: 'Semua Kategori Alahan' }
+    ];
+
+            if (query === "") {
+                dropdown.classList.add('hidden');
+                return;
+            }
+
+            // Tapis data berdasarkan kata kunci
+            const filtered = database.filter(item => 
+                item.keywords.some(keyword => keyword.includes(query))
+            );
+
+            dropdown.classList.remove('hidden');
+
+            if (filtered.length > 0) {
+                resultsContainer.innerHTML = filtered.map(item => `
+                    <li class="border-b last:border-none">
+                        <a href="${item.url}" class="block px-6 py-3 hover:bg-blue-50 transition flex justify-between items-center text-left">
+                            <div>
+                                <p class="font-bold text-gray-900">${item.title}</p>
+                                <p class="text-[10px] text-gray-400 uppercase tracking-tighter">Klik untuk maklumat lanjut</p>
+                            </div>
+                            <span class="text-blue-500">→</span>
+                        </a>
+                    </li>
+                `).join('');
+            } else {
+                resultsContainer.innerHTML = `
+                    <li class="px-6 py-4 text-gray-500 italic text-center">
+                        Maaf, kata kunci "${query}" tidak dijumpai.
+                    </li>
+                `;
+            }
+        }
+
+        // Tutup dropdown jika klik di luar
+        document.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('searchDropdown');
+            const input = document.getElementById('searchInput');
+            if (dropdown && !dropdown.contains(e.target) && e.target !== input) {
+                dropdown.classList.add('hidden');
+            }
+        });
+    </script>
+
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCCPVG-1Cn6MRt9c-AWUMSiJOf_i4DqdTA",
+        authDomain: "allergyguide-c9ed9.firebaseapp.com",
+        databaseURL: "https://allergyguide-c9ed9-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "allergyguide-c9ed9",
+        storageBucket: "allergyguide-c9ed9.firebasestorage.app",
+        messagingSenderId: "364105086732",
+        appId: "1:364105086732:web:4f45ed7968f9af0ced7b29",
+        measurementId: "G-0B8BW4YTY6"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    onValue(ref(db, 'siteContent'), (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+            if (data.announcement) {
+                const announceEl = document.getElementById('display-announcement');
+                if(announceEl) announceEl.innerText = data.announcement;
+            }
+            if (data.dailyTip && data.dailyTip.title) {
+                const tipBox = document.getElementById('tip-box');
+                const tipTitle = document.getElementById('display-tip-title');
+                if(tipBox) tipBox.classList.remove('hidden');
+                if(tipTitle) tipTitle.innerText = data.dailyTip.title;
+            }
+        }
+    });
+</script>
+</body>
+</html>

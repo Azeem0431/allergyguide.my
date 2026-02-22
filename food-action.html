@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Action Plan | AllergyGuide.my</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .action-card:hover { transform: scale(1.02); transition: all 0.2s; }
+        /* Efek coret apabila checkbox ditanda */
+        .check-item:checked + label { text-decoration: line-through; color: #94a3b8; }
+    </style>
+</head>
+<body class="bg-[#F8FAFC] text-gray-800">
+
+    <header class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <a href="skin-details.html" class="text-gray-500 hover:text-[#0094D4] transition p-2 hover:bg-gray-100 rounded-full">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </a>
+                <h1 class="text-2xl font-extrabold text-[#0094D4]">AllergyGuide.My</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-12">
+        
+        <div class="bg-gradient-to-r from-[#1A2E44] to-[#0094D4] rounded-[40px] p-10 md:p-16 text-white mb-12 shadow-2xl">
+            <div class="max-w-2xl">
+                <span class="bg-white/20 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Pelan Tindakan Makanan</span>
+                <h2 class="text-4xl md:text-5xl font-black mt-6 mb-4">Urus Alahan Melalui Diet.</h2>
+                <p class="text-blue-100 text-lg leading-relaxed">Gunakan alat interaktif di bawah untuk menjejaki makanan anda dan kenalpasti punca kegatalan kulit dengan lebih saintifik.</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <div class="lg:col-span-2 space-y-8">
+                <div class="bg-white rounded-[32px] p-8 shadow-sm border border-gray-100">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-bold text-[#1A2E44]">Track Alergen Anda</h3>
+                        <span class="text-xs font-bold text-blue-500 bg-blue-50 px-3 py-1 rounded-full italic">Sila tanda makanan yang telah anda makan hari ini</span>
+                    </div>
+                    
+                    <div id="allergen-list" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex items-center p-4 bg-gray-50 rounded-2xl action-card">
+                            <input type="checkbox" id="c1" class="check-item w-5 h-5 rounded border-gray-300 text-[#0094D4] focus:ring-[#0094D4]">
+                            <label for="c1" class="ml-3 font-semibold text-gray-700">Susu & Produk Tenusu</label>
+                        </div>
+                        <div class="flex items-center p-4 bg-gray-50 rounded-2xl action-card">
+                            <input type="checkbox" id="c2" class="check-item w-5 h-5 rounded border-gray-300 text-[#0094D4] focus:ring-[#0094D4]">
+                            <label for="c2" class="ml-3 font-semibold text-gray-700">Telur (Ayam/Itik)</label>
+                        </div>
+                        <div class="flex items-center p-4 bg-gray-50 rounded-2xl action-card">
+                            <input type="checkbox" id="c3" class="check-item w-5 h-5 rounded border-gray-300 text-[#0094D4] focus:ring-[#0094D4]">
+                            <label for="c3" class="ml-3 font-semibold text-gray-700">Kacang Tanah / Nut</label>
+                        </div>
+                        <div class="flex items-center p-4 bg-gray-50 rounded-2xl action-card">
+                            <input type="checkbox" id="c4" class="check-item w-5 h-5 rounded border-gray-300 text-[#0094D4] focus:ring-[#0094D4]">
+                            <label for="c4" class="ml-3 font-semibold text-gray-700">Makanan Laut / Seafood</label>
+                        </div>
+                        <div class="flex items-center p-4 bg-gray-50 rounded-2xl action-card">
+                            <input type="checkbox" id="c5" class="check-item w-5 h-5 rounded border-gray-300 text-[#0094D4] focus:ring-[#0094D4]">
+                            <label for="c5" class="ml-3 font-semibold text-gray-700">Gandum / Gluten</label>
+                        </div>
+                        <div class="flex items-center p-4 bg-gray-50 rounded-2xl action-card">
+                            <input type="checkbox" id="c6" class="check-item w-5 h-5 rounded border-gray-300 text-[#0094D4] focus:ring-[#0094D4]">
+                            <label for="c6" class="ml-3 font-semibold text-gray-700">Soya & Produk Soya</label>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t">
+                        <p class="text-sm text-gray-400 mb-4">Nota: Data ini disimpan secara peribadi di dalam pelayar web anda sahaja.</p>
+                        <button onclick="saveLog()" class="w-full bg-[#0094D4] text-white py-4 rounded-2xl font-bold hover:bg-blue-600 transition shadow-lg shadow-blue-100">Simpan Log Hari Ini</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-[32px] p-8 shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-bold text-[#1A2E44] mb-6">Peta Reaksi & Masa</h3>
+                    <div class="space-y-6">
+                        <div class="flex space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-600 font-bold">1</div>
+                            <div>
+                                <h4 class="font-bold">Reaksi Segera (0 - 2 Jam)</h4>
+                                <p class="text-sm text-gray-500">Biasanya disebabkan oleh Seafood atau Kacang. Simptom: Bibir bengkak, gatal-gatal (Hives), sesak nafas.</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 font-bold">2</div>
+                            <div>
+                                <h4 class="font-bold">Reaksi Lewat (4 - 48 Jam)</h4>
+                                <p class="text-sm text-gray-500">Biasanya berkaitan dengan Ekzema atau Keradangan Kulit Kronik. Sering disebabkan oleh Susu atau Gandum.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                <div class="bg-blue-50 rounded-[32px] p-6 border border-blue-100">
+                    <h4 class="text-lg font-bold text-[#1A2E44] mb-4 flex items-center">
+                        <span class="mr-2">🛒</span> Checklist Belanja
+                    </h4>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex items-center">✅ Baca label ramuan 2 kali</li>
+                        <li class="flex items-center">✅ Cari logo "Gluten-Free"</li>
+                        <li class="flex items-center">✅ Elakkan makanan diproses</li>
+                        <li class="flex items-center">✅ Tanya pelayan di restoran</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-[32px] p-6 shadow-sm border border-gray-100">
+                    <h4 class="text-lg font-bold text-red-500 mb-4 uppercase text-xs tracking-widest">Waspada! Nama Tersembunyi</h4>
+                    <div class="space-y-4">
+                        <div class="pb-2 border-b">
+                            <p class="text-xs font-bold text-gray-400">Susu & Tenusu</p>
+                            <p class="text-sm font-semibold">Casein, Whey, Ghee, Nougat</p>
+                        </div>
+                        <div class="pb-2 border-b">
+                            <p class="text-xs font-bold text-gray-400">Telur</p>
+                            <p class="text-sm font-semibold">Albumin, Lecithin, Globulin</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-gray-400">Gandum</p>
+                            <p class="text-sm font-semibold">Durum, Semolina, Spelt, Malt</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-red-50 rounded-[32px] p-6 border border-red-100">
+                    <p class="text-xs font-bold text-red-600 uppercase tracking-widest mb-2">Pernafasan Sukar?</p>
+                    <h4 class="font-black text-red-700 mb-4">Panggilan Kecemasan</h4>
+                    <a href="tel:999" class="block text-center bg-red-600 text-white py-3 rounded-xl font-bold shadow-lg shadow-red-200">Call 999 Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-16 bg-white rounded-[40px] p-10 shadow-sm border border-gray-100">
+            <h3 class="text-2xl font-black text-center text-[#1A2E44] mb-12">Panduan Elimination Diet (6 Minggu)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-[#0094D4] text-white rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-4 shadow-lg shadow-blue-100">1</div>
+                    <h5 class="font-bold mb-2">Minggu 1-2: Bersihkan</h5>
+                    <p class="text-sm text-gray-500">Hentikan semua makanan yang dirasakan punca gatal. Makan makanan segar (Nasi, Sayur, Daging Segar).</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-[#0094D4] text-white rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-4 shadow-lg shadow-blue-100">2</div>
+                    <h5 class="font-bold mb-2">Minggu 3-4: Pantau</h5>
+                    <p class="text-sm text-gray-500">Lihat keadaan kulit. Adakah kemerahan berkurang? Jika ya, anda sudah di jalan yang betul.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-[#0094D4] text-white rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-4 shadow-lg shadow-blue-100">3</div>
+                    <h5 class="font-bold mb-2">Minggu 5-6: Cabar</h5>
+                    <p class="text-sm text-gray-500">Mula makan satu jenis makanan alergen semula. Jika gatal muncul dalam 24 jam, itulah punca anda!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-16 flex flex-col items-center">
+            <a href="skin-details.html" class="flex items-center space-x-2 text-gray-500 hover:text-[#0094D4] font-bold transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7 7-7m8 14l-7-7 7-7"></path></svg>
+                <span>Kembali ke Halaman Alahan Kulit</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-white border-t py-12 px-6 mt-20">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-xl font-extrabold text-[#1A2E44] mb-2">AllergyGuide.My</h2>
+            <p class="text-sm text-gray-400">Sentiasa berbincang dengan doktor pakar sebelum memulakan sebarang diet ekstrem.</p>
+        </div>
+    </footer>
+
+    <script>
+        function saveLog() {
+            const checkedItems = [];
+            const checkboxes = document.querySelectorAll('.check-item:checked');
+            
+            checkboxes.forEach((cb) => {
+                // Ambil teks dari label yang berkaitan dengan checkbox
+                const labelText = document.querySelector(`label[for="${cb.id}"]`).innerText;
+                checkedItems.push(labelText);
+            });
+
+            if (checkedItems.length === 0) {
+                alert("Sila tanda sekurang-kurangnya satu makanan.");
+                return;
+            }
+
+            // Simpan ke LocalStorage
+            const logEntry = {
+                tarikh: new Date().toLocaleString(),
+                makanan: checkedItems
+            };
+
+            // Ambil data lama jika ada, kemudian tambah yang baru
+            let history = JSON.parse(localStorage.getItem('allergyLogs')) || [];
+            history.push(logEntry);
+            localStorage.setItem('allergyLogs', JSON.stringify(history));
+
+            alert('Log berjaya disimpan! Anda telah makan: ' + checkedItems.join(', '));
+            
+            // Optional: Reset checkbox selepas simpan
+            checkboxes.forEach(cb => cb.checked = false);
+        }
+    </script>
+
+</body>
+</html>

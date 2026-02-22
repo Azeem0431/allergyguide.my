@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allergy Categories | AllergyGuide.my</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .category-card:hover img { transform: scale(1.05); }
+
+        /* Chat Box Styles */
+        #chatBox {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(20px);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #chatBox.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .chat-content::-webkit-scrollbar { width: 4px; }
+        .chat-content::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-[#F8FAFC] text-gray-800 transition-colors duration-300 dark:bg-slate-900 dark:text-gray-100">
+
+    <div class="fixed top-20 right-6 z-[70]">
+        <button onclick="toggleDarkMode()" class="p-3 rounded-full bg-white dark:bg-slate-800 shadow-lg border border-gray-200 dark:border-slate-700 text-gray-600 dark:text-yellow-400 hover:scale-110 transition-all">
+            <svg id="sunIcon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+            <svg id="moonIcon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+        </button>
+    </div>
+
+    <header class="bg-white dark:bg-slate-800 border-b dark:border-slate-700 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                 <a href="en-FirstPage.HTML" class="text-gray-500 dark:text-gray-400 hover:text-[#0094D4] transition p-2 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-full">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </a>
+                <h1 class="text-2xl font-extrabold text-[#0094D4]">AllergyGuide.My</h1>
+            </div>
+            <div class="flex-1 max-w-xl mx-10 relative">
+                <div class="relative">
+                    <input type="text" id="searchInput" onkeyup="performSearch()" placeholder="Search categories..." 
+                           class="w-full bg-[#F1F8FB] dark:bg-slate-700 border-none rounded-full py-2.5 pl-10 pr-4 text-sm focus:ring-2 focus:ring-blue-100 dark:text-white">
+                    <span class="absolute inset-y-0 left-3 flex items-center text-[#0094D4]">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </span>
+                </div>
+
+                <div id="searchDropdown" class="hidden absolute left-0 right-0 mt-2 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl z-50 overflow-hidden border border-gray-100 dark:border-slate-700">
+                    <ul id="searchResults"></ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-white dark:bg-slate-800/50 py-12 mb-8 border-b dark:border-slate-700">
+        <div class="max-w-7xl mx-auto px-6">
+            <nav class="flex mb-4 text-xs font-bold text-gray-400 uppercase tracking-widest">
+                <a href="en-FirstPage.HTML" class="hover:text-[#0094D4]">Home</a>
+                <span class="mx-2">›</span>
+                <span class="text-[#0094D4]">Allergy Categories</span>
+            </nav>
+            <h2 class="text-4xl font-black text-[#1A2E44] dark:text-blue-400 mb-2">Allergy Categories</h2>
+            <p class="text-gray-500 dark:text-gray-400 max-w-2xl">Explore various types of allergies, understand their triggers, and learn how to manage symptoms effectively.</p>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-6 mb-24 min-h-[500px]">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="category-card bg-white dark:bg-slate-800 rounded-[32px] overflow-hidden shadow-sm border border-gray-100 dark:border-slate-700 transition-all hover:shadow-xl group">
+                <div class="h-56 overflow-hidden"><img src="peanutimg.jpg" class="w-full h-full object-cover transition-transform duration-500" alt="Food Allergy"></div>
+                <div class="p-8">
+                    <span class="text-[10px] font-black text-blue-500 uppercase tracking-widest">Most Common</span>
+                    <h4 class="text-2xl font-bold text-[#1A2E44] dark:text-white mt-1">Food Allergy</h4>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-3 leading-relaxed">Immune system reactions to specific food proteins such as peanuts, seafood, and milk.</p>
+                    <button onclick="location.href='en-food-details.html'" class="mt-6 text-[#0094D4] font-bold text-sm flex items-center group-hover:underline">View Details <span class="ml-2">→</span></button>
+                </div>
+            </div>
+
+            <div class="category-card bg-white dark:bg-slate-800 rounded-[32px] overflow-hidden shadow-sm border border-gray-100 dark:border-slate-700 transition-all hover:shadow-xl group">
+                <div class="h-56 overflow-hidden"><img src="skinallergyimg.jpg" class="w-full h-full object-cover transition-transform duration-500" alt="Skin Allergy"></div>
+                <div class="p-8">
+                    <span class="text-[10px] font-black text-green-500 uppercase tracking-widest">Dermatology</span>
+                    <h4 class="text-2xl font-bold text-[#1A2E44] dark:text-white mt-1">Skin Allergy</h4>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-3 leading-relaxed">Conditions like Eczema and Hives that cause itching, rashes, and skin inflammation.</p>
+                    <button onclick="location.href='en-skin-details.html'" class="mt-6 text-[#0094D4] font-bold text-sm flex items-center group-hover:underline">View Details <span class="ml-2">→</span></button>
+                </div>
+            </div>
+
+            <div class="category-card bg-white dark:bg-slate-800 rounded-[32px] overflow-hidden shadow-sm border border-gray-100 dark:border-slate-700 transition-all hover:shadow-xl group">
+                <div class="h-56 overflow-hidden"><img src="rhintisimg.jpg" class="w-full h-full object-cover transition-transform duration-500" alt="Respiratory Allergy"></div>
+                <div class="p-8">
+                    <span class="text-[10px] font-black text-orange-500 uppercase tracking-widest">Respiratory</span>
+                    <h4 class="text-2xl font-bold text-[#1A2E44] dark:text-white mt-1">Respiratory Allergy</h4>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-3 leading-relaxed">Allergies to dust, pollen, or mold that affect the airways, nose, and sinuses.</p>
+                    <button onclick="location.href='en-respiratory-details.html'" class="mt-6 text-[#0094D4] font-bold text-sm flex items-center group-hover:underline">View Details <span class="ml-2">→</span></button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div class="fixed bottom-6 right-6 z-[60] flex flex-col items-end">
+        <div id="chatBox" class="mb-4 w-80 md:w-96 bg-white dark:bg-slate-800 rounded-3xl shadow-2xl border border-gray-100 dark:border-slate-700 overflow-hidden flex flex-col">
+            <div class="bg-[#0094D4] p-5 text-white flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    <span class="font-bold">Mistral Assistant</span>
+                </div>
+                <button onclick="toggleChat()" class="hover:opacity-70 text-xl font-bold">×</button>
+            </div>
+            <div id="chatContainer" class="chat-content p-6 bg-gray-50 dark:bg-slate-900 h-64 overflow-y-auto text-sm text-gray-600 dark:text-gray-300 flex flex-col space-y-4">
+                <div class="bg-white dark:bg-slate-800 p-3 rounded-2xl rounded-tl-none shadow-sm border border-gray-100 dark:border-slate-700 self-start max-w-[85%] text-gray-700 dark:text-gray-200">
+                    Hi! I'm your AI assistant. Have questions? Ask me here!
+                </div>
+            </div>
+            <div class="p-4 bg-white dark:bg-slate-800 border-t dark:border-slate-700">
+                <div class="flex space-x-2">
+                    <input type="text" id="aiInput" placeholder="Type..." class="flex-1 border border-gray-200 dark:border-slate-600 dark:bg-slate-700 dark:text-white rounded-xl px-4 py-2 text-sm focus:outline-none">
+                    <button onclick="askAI()" class="bg-[#1A2E44] dark:bg-blue-600 text-white p-2 rounded-xl hover:bg-black transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <button onclick="toggleChat()" class="bg-[#0094D4] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+        </button>
+    </div>
+
+    <footer class="bg-[#0094D4] text-white py-16 px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <h2 class="text-4xl font-extrabold mb-10">AllergyGuide.My</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold border-b border-blue-400 w-fit pb-1">Hubungi Kami</h3>
+                    <p class="font-bold">BPJ241210438@student.kptm.edu.my</p>
+                </div>
+                <div class="flex items-end md:justify-end">
+                    <p class="text-sm opacity-60">© 2026 AllergyGuide.my</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Logik Dark Mode
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const sunIcon = document.getElementById('sunIcon');
+            const moonIcon = document.getElementById('moonIcon');
+
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.theme = 'light';
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            } else {
+                html.classList.add('dark');
+                localStorage.theme = 'dark';
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            }
+        }
+
+        // Semak setting asal bila page load
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            document.getElementById('sunIcon').classList.remove('hidden');
+            document.getElementById('moonIcon').classList.add('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // --- Baki Script Sedia Ada ---
+        const MISTRAL_API_KEY = "60WHWYBuGH4fxqEiYXQ8vI4UE1C27xdn";
+        
+        function toggleChat() {
+            document.getElementById('chatBox').classList.toggle('active');
+        }
+
+        async function askAI() {
+            const inputField = document.getElementById('aiInput');
+            const chatContainer = document.getElementById('chatContainer');
+            const userText = inputField.value.trim();
+            if (!userText) return;
+
+            chatContainer.innerHTML += `<div class="bg-[#0094D4] text-white p-3 rounded-2xl rounded-tr-none shadow-sm self-end max-w-[85%]">${userText}</div>`;
+            inputField.value = "";
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+
+            const loadingId = "loading-" + Date.now();
+            chatContainer.innerHTML += `<div id="${loadingId}" class="bg-white dark:bg-slate-800 p-3 rounded-2xl rounded-tl-none shadow-sm self-start max-w-[85%] italic text-gray-400">Mistral is typing...</div>`;
+
+            try {
+                const response = await fetch("https://api.mistral.ai/v1/chat/completions", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json", "Authorization": `Bearer ${MISTRAL_API_KEY}` },
+                    body: JSON.stringify({
+                        model: "mistral-tiny",
+                        messages: [
+                            { role: "system", content: "You are the AllergyAssistant expert. Provide short answers." },
+                            { role: "user", content: userText }
+                        ]
+                    })
+                });
+                const data = await response.json();
+                document.getElementById(loadingId).remove();
+                chatContainer.innerHTML += `<div class="bg-white dark:bg-slate-800 p-3 rounded-2xl rounded-tl-none shadow-sm border border-gray-100 dark:border-slate-700 self-start max-w-[85%] text-gray-700 dark:text-gray-200">${data.choices[0].message.content}</div>`;
+            } catch (e) {
+                document.getElementById(loadingId).innerText = "Error connecting to AI.";
+            }
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        // Panggil fungsi search asal anda di sini...
+        function performSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const dropdown = document.getElementById('searchDropdown');
+            const cards = document.querySelectorAll('.category-card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('h4').innerText.toLowerCase();
+                card.style.display = title.includes(query) ? "block" : "none";
+            });
+
+            if(query === "") dropdown.classList.add('hidden');
+            else dropdown.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

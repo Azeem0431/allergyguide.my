@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Admin | AllergyGuide.my</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        /* Animasi semasa tukar tab */
+        .fade-in { animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        /* Sembunyikan seluruh body secara lalai */
+body { display: none; font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#F3F4F6] flex">
+
+    <aside class="w-64 h-screen bg-[#1A2E44] text-white flex flex-col sticky top-0">
+        <div class="p-8 text-center md:text-left">
+            <h1 class="text-xl font-black tracking-tighter">ALLERGY<span class="text-[#0094D4]">GUIDE</span></h1>
+            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-1">Global Controller</p>
+        </div>
+        
+        <nav class="flex-1 px-4 space-y-2">
+            <button onclick="showTab('clinics')" id="btn-clinics" class="w-full flex items-center space-x-3 p-4 bg-[#0094D4] rounded-2xl font-bold transition">
+                <span>🏥 Urus Klinik</span>
+            </button>
+            <button onclick="showTab('website')" id="btn-website" class="w-full flex items-center space-x-3 p-4 hover:bg-white/10 rounded-2xl font-medium text-gray-400 hover:text-white transition">
+                <span>🌐 Kandungan Web</span>
+            </button>
+        </nav>
+
+        <div class="p-4 border-t border-white/10 space-y-2">
+            <div id="user-info" class="text-[10px] text-gray-400 px-2 truncate text-center">Memuatkan...</div>
+            <button onclick="handleLogout()" class="w-full flex items-center justify-center space-x-2 p-3 bg-red-500/10 text-red-400 rounded-xl font-bold hover:bg-red-500 hover:text-white transition">
+                <span>🚪 Log Keluar</span>
+            </button>
+        </div>
+    </aside>
+
+    <main class="flex-1 p-10 overflow-y-auto h-screen">
+        
+        <div id="clinics" class="tab-content active fade-in">
+            <header class="flex justify-between items-center mb-10">
+                <div>
+                    <h2 class="text-3xl font-extrabold text-[#1A2E44]">Pengurusan Klinik</h2>
+                    <p class="text-gray-500">Data ini akan dipaparkan di halaman 'Doctor Finder'.</p>
+                </div>
+                <button onclick="openModal()" class="bg-[#0094D4] text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:bg-blue-600 transition">+ Tambah Klinik</button>
+            </header>
+
+            <div class="bg-white rounded-[32px] shadow-sm border border-gray-100 overflow-hidden text-sm text-left">
+                <table class="w-full">
+                    <thead class="bg-gray-50 text-gray-400 uppercase font-bold text-[10px]">
+                        <tr>
+                            <th class="px-8 py-4">Nama Klinik</th>
+                            <th class="px-8 py-4">Negeri</th>
+                            <th class="px-8 py-4">No. Telefon</th>
+                            <th class="px-8 py-4 text-center">Tindakan</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminClinicList" class="divide-y">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="website" class="tab-content fade-in">
+            <header class="mb-10">
+                <h2 class="text-3xl font-extrabold text-[#1A2E44]">Kandungan Website</h2>
+                <p class="text-gray-500">Tukar teks utama di halaman depan secara masa nyata (Real-time).</p>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-8 rounded-[32px] shadow-sm border">
+                    <h3 class="font-bold text-lg mb-4 text-[#0094D4]">📢 Pengumuman Utama (Home)</h3>
+                    <textarea id="web-announcement" rows="3" class="w-full p-4 bg-gray-50 rounded-xl border mb-4 focus:ring-2 focus:ring-blue-400 outline-none" placeholder="Tulis pengumuman baru..."></textarea>
+                    <button onclick="updateWeb('announcement')" class="bg-[#1A2E44] text-white px-6 py-3 rounded-xl text-sm font-bold hover:bg-black transition w-full">Kemaskini Home</button>
+                </div>
+
+                <div class="bg-white p-8 rounded-[32px] shadow-sm border">
+                    <h3 class="font-bold text-lg mb-4 text-[#0094D4]">💡 Tips Alahan Hari Ini</h3>
+                    <input type="text" id="web-tip-title" class="w-full p-4 bg-gray-50 rounded-xl border mb-2 focus:ring-2 focus:ring-blue-400 outline-none" placeholder="Tajuk Tips">
+                    <textarea id="web-tip-desc" rows="2" class="w-full p-4 bg-gray-50 rounded-xl border mb-4 focus:ring-2 focus:ring-blue-400 outline-none" placeholder="Huraian ringkas tips..."></textarea>
+                    <button onclick="updateWeb('dailyTip')" class="bg-[#1A2E44] text-white px-6 py-3 rounded-xl text-sm font-bold hover:bg-black transition w-full">Kemaskini Tips</button>
+                </div>
+ <div class="col-span-1 md:col-span-2 bg-white p-8 rounded-[32px] shadow-sm border mt-6">
+    <h3 class="font-bold text-lg mb-4 text-[#0094D4]">🎥 Urus Video Tips & Panduan</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 bg-blue-50 p-6 rounded-2xl">
+        <select id="vCategory" class="p-4 rounded-xl border outline-none font-semibold">
+            <option value="Alahan Kulit">1. Alahan Kulit</option>
+            <option value="Pernafasan">2. Pernafasan</option>
+            <option value="Alahan Mata">3. Alahan Mata</option>
+            <option value="Alahan Makanan">4. Alahan Makanan</option>
+            <option value="Alahan Ubat">5. Alahan Ubat</option>
+            <option value="Haiwan">6. Haiwan</option>
+        </select>
+        <input type="text" id="vUrl" placeholder="ID Video (Cth: ruNbRCFtW8Q)" class="p-4 rounded-xl border outline-none">
+        <button onclick="addVideo()" class="bg-[#0094D4] text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-600 transition">Tambah Video</button>
+    </div>
+
+    <div class="overflow-x-auto">
+        <table class="w-full text-left">
+            <thead class="bg-gray-50 text-[10px] uppercase font-bold text-gray-400">
+                <tr>
+                    <th class="px-4 py-2">Kategori</th>
+                    <th class="px-4 py-2">link video</th>
+                    <th class="px-4 py-2 text-center">Tindakan</th>
+                </tr>
+            </thead>
+            <tbody id="adminVideoList" class="divide-y text-sm"></tbody>
+        </table>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <div id="clinicModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[100] backdrop-blur-sm p-4">
+        <div class="bg-white w-full max-w-lg rounded-[40px] p-10 shadow-2xl">
+            <h3 class="text-2xl font-black mb-6">Daftar Klinik Baru</h3>
+            <div class="space-y-4 text-sm">
+                <input type="text" id="cName" placeholder="Nama Klinik" class="w-full p-4 bg-gray-50 rounded-2xl border outline-none focus:ring-2 focus:ring-blue-400">
+                <select id="cState" class="w-full p-4 bg-gray-50 rounded-2xl border outline-none focus:ring-2 focus:ring-blue-400 font-semibold">
+                    <option value="Kuala Lumpur">Kuala Lumpur</option>
+                    <option value="Selangor">Selangor</option>
+                    <option value="Johor">Johor</option>
+                    <option value="Pulau Pinang">Pulau Pinang</option>
+                    <option value="Melaka">Melaka</option>
+                </select>
+                <input type="text" id="cAddress" placeholder="Alamat Singkat (Cth: Bangsar, KL)" class="w-full p-4 bg-gray-50 rounded-2xl border outline-none focus:ring-2 focus:ring-blue-400">
+                <input type="text" id="cPhone" placeholder="No. Telefon" class="w-full p-4 bg-gray-50 rounded-2xl border outline-none focus:ring-2 focus:ring-blue-400">
+                
+                <div class="flex space-x-4 pt-4">
+                    <button onclick="closeModal()" class="flex-1 bg-gray-100 py-4 rounded-2xl font-bold hover:bg-gray-200 transition">Batal</button>
+                    <button id="btnSave" class="flex-1 bg-[#0094D4] text-white py-4 rounded-2xl font-bold hover:bg-blue-600 transition shadow-lg shadow-blue-100">Simpan Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getDatabase, ref, push, onValue, remove, set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCCPVG-1Cn6MRt9c-AWUMSiJOf_i4DqdTA",
+            authDomain: "allergyguide-c9ed9.firebaseapp.com",
+            databaseURL: "https://allergyguide-c9ed9-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "allergyguide-c9ed9",
+            appId: "1:364105086732:web:4f45ed7968f9af0ced7b29"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const auth = getAuth(app);
+
+        // --- 1. KAWALAN KESELAMATAN (LOGIN CHECK) ---
+        onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // Jika login sah:
+        document.getElementById('user-info').innerText = user.email;
+        document.body.style.display = "flex"; // Tunjukkan dashboard (flex sebab body guna flex)
+    } else {
+        // Jika tidak login:
+        window.location.replace("login.html"); // Guna .replace supaya user tak boleh tekan 'Back'
+    }
+});
+
+        window.handleLogout = function() {
+            if(confirm("Adakah anda mahu log keluar?")) {
+                signOut(auth).then(() => {
+                    window.location.href = "login.html";
+                });
+            }
+        };
+
+        // --- 2. PENGURUSAN KLINIK ---
+        document.getElementById('btnSave').onclick = () => {
+            const name = document.getElementById('cName').value;
+            const state = document.getElementById('cState').value;
+            const address = document.getElementById('cAddress').value;
+            const phone = document.getElementById('cPhone').value;
+
+            if(!name || !address || !phone) {
+                alert("Sila isi semua maklumat klinik.");
+                return;
+            }
+
+            const data = { name, state, address, phone };
+            push(ref(db, 'clinics'), data).then(() => { 
+                alert("Klinik berjaya didaftarkan!"); 
+                closeModal(); 
+                // Reset form
+                document.getElementById('cName').value = "";
+                document.getElementById('cAddress').value = "";
+                document.getElementById('cPhone').value = "";
+            });
+        };
+
+        // Baca Senarai Klinik
+        onValue(ref(db, 'clinics'), (snap) => {
+            const list = document.getElementById('adminClinicList');
+            list.innerHTML = "";
+            snap.forEach(child => {
+                const clinic = child.val();
+                list.innerHTML += `
+                    <tr class="hover:bg-gray-50 transition">
+                        <td class="px-8 py-4 font-bold text-[#1A2E44]">${clinic.name}</td>
+                        <td class="px-8 py-4 text-gray-500">${clinic.state}</td>
+                        <td class="px-8 py-4 text-gray-500">${clinic.phone}</td>
+                        <td class="px-8 py-4 text-center">
+                            <button onclick="deleteClinic('${child.key}')" class="text-red-500 font-bold hover:bg-red-50 px-4 py-2 rounded-lg transition">Padam</button>
+                        </td>
+                    </tr>`;
+            });
+        });
+
+        window.deleteClinic = (id) => { 
+            if(confirm("Padam maklumat klinik ini secara kekal?")) {
+                remove(ref(db, `clinics/${id}`)); 
+            }
+        };
+
+        // --- 3. PENGURUSAN WEBSITE (CMS) ---
+        window.updateWeb = (type) => {
+            if(type === 'announcement') {
+                const val = document.getElementById('web-announcement').value;
+                set(ref(db, 'siteContent/announcement'), val).then(() => alert("Pengumuman Home berjaya dikemaskini!"));
+            }
+            if(type === 'dailyTip') {
+                const title = document.getElementById('web-tip-title').value;
+                const desc = document.getElementById('web-tip-desc').value;
+                set(ref(db, 'siteContent/dailyTip'), { title, desc }).then(() => alert("Tips Alahan berjaya dikemaskini!"));
+            }
+        };
+
+        // Load data CMS sedia ada
+        onValue(ref(db, 'siteContent'), (snap) => {
+            const data = snap.val();
+            if(data) {
+                document.getElementById('web-announcement').value = data.announcement || "";
+                document.getElementById('web-tip-title').value = data.dailyTip?.title || "";
+                document.getElementById('web-tip-desc').value = data.dailyTip?.desc || "";
+            }
+        });
+
+        // --- 4. PENGURUSAN VIDEO TIPS ---
+
+// Fungsi Tambah Video
+window.addVideo = () => {
+    const category = document.getElementById('vCategory').value;
+    const url = document.getElementById('vUrl').value;
+
+    if(!url.includes('embed')) {
+        alert("Pastikan anda menggunakan URL 'embed' YouTube. Contoh: https://www.youtube.com/embed/videoID");
+        return;
+    }
+
+    const videoData = { category, url };
+    push(ref(db, 'videoTips'), videoData).then(() => {
+        alert("Video berjaya ditambah!");
+        document.getElementById('vUrl').value = ""; // Reset input
+    });
+};
+
+// Baca Senarai Video & Papar dalam Jadual Dashboard
+onValue(ref(db, 'videoTips'), (snap) => {
+    const list = document.getElementById('adminVideoList');
+    list.innerHTML = "";
+    snap.forEach(child => {
+        const v = child.val();
+        list.innerHTML += `
+            <tr class="hover:bg-gray-50 transition">
+                <td class="px-4 py-3 font-semibold text-blue-600">${v.category}</td>
+                <td class="px-4 py-3 text-gray-500 truncate max-w-[200px]">${v.url}</td>
+                <td class="px-4 py-3 text-center">
+                    <button onclick="deleteVideo('${child.key}')" class="text-red-500 hover:text-red-700 font-bold">Padam</button>
+                </td>
+            </tr>`;
+    });
+});
+
+// Fungsi Padam Video
+window.deleteVideo = (id) => {
+    if(confirm("Adakah anda pasti mahu memadam video ini?")) {
+        remove(ref(db, `videoTips/${id}`));
+    }
+};
+    </script>
+
+    <script>
+        // FUNGSI UI (Bukan Firebase)
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            
+            // Tukar warna butang aktif
+            const isClinics = tabId === 'clinics';
+            document.getElementById('btn-clinics').className = isClinics 
+                ? "w-full flex items-center space-x-3 p-4 bg-[#0094D4] rounded-2xl font-bold transition text-white" 
+                : "w-full flex items-center space-x-3 p-4 hover:bg-white/10 rounded-2xl font-medium text-gray-400 hover:text-white transition text-white";
+            
+            document.getElementById('btn-website').className = !isClinics 
+                ? "w-full flex items-center space-x-3 p-4 bg-[#0094D4] rounded-2xl font-bold transition text-white" 
+                : "w-full flex items-center space-x-3 p-4 hover:bg-white/10 rounded-2xl font-medium text-gray-400 hover:text-white transition text-white";
+        }
+
+        function openModal() { document.getElementById('clinicModal').style.display = 'flex'; }
+        function closeModal() { document.getElementById('clinicModal').style.display = 'none'; }
+    </script>
+</body>
+</html>

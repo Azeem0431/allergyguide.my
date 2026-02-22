@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Skin Specialist | AllergyGuide.my</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .clinic-card:hover { border-color: #0094D4; transform: translateY(-4px); transition: all 0.3s; }
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body class="bg-[#F8FAFC] text-gray-800">
+
+    <header class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <a href="en-skin-details.html" class="text-gray-500 hover:text-[#0094D4] p-2 hover:bg-gray-100 rounded-full transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </a>
+                <h1 class="text-2xl font-extrabold text-[#0094D4]">AllergyGuide.My</h1>
+            </div>
+            <div class="hidden md:block">
+                <span class="text-sm font-bold text-gray-400 uppercase tracking-widest">Malaysia Specialist Directory</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black text-[#1A2E44] mb-4">Find a Skin Specialist (Dermatologist)</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto">Use the filter below to find certified skin specialists by state or clinic name.</p>
+            
+            <div class="mt-10 max-w-4xl mx-auto flex flex-col md:flex-row gap-4">
+                <div class="flex-1 relative">
+                    <svg class="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    <input type="text" id="searchInput" onkeyup="filterClinics()" placeholder="Search clinic name, city or doctor..." class="w-full pl-12 pr-4 py-4 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-[#0094D4] outline-none shadow-sm transition">
+                </div>
+                <select id="stateFilter" onchange="filterClinics()" class="px-6 py-4 rounded-2xl border border-gray-200 bg-white font-bold text-gray-600 outline-none shadow-sm cursor-pointer hover:bg-gray-50">
+                    <option value="all">All States</option>
+                    <option value="kuala lumpur">Kuala Lumpur</option>
+                    <option value="selangor">Selangor</option>
+                    <option value="johor">Johor</option>
+                    <option value="pulau pinang">Penang</option>
+                    <option value="perak">Perak</option>
+                    <option value="kedah">Kedah</option>
+                    <option value="melaka">Melaka</option>
+                    <option value="pahang">Pahang</option>
+                    <option value="sarawak">Sarawak</option>
+                    <option value="sabah">Sabah</option>
+                    <option value="negeri sembilan">Negeri Sembilan</option>
+                    <option value="terengganu">Terengganu</option>
+                    <option value="kelantan">Kelantan</option>
+                    <option value="perlis">Perlis</option>
+                    <option value="putrajaya">Putrajaya</option>
+                    <option value="labuan">Labuan</option>
+                </select>
+            </div>
+            <p id="resultCount" class="mt-4 text-sm font-bold text-[#0094D4]"></p>
+        </div>
+
+        <div id="clinicContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="clinic-item bg-white rounded-[32px] p-8 border border-gray-100 shadow-sm clinic-card transition" data-state="kuala lumpur">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-3xl">🏥</div>
+                    <span class="bg-green-100 text-green-600 text-[10px] font-black px-3 py-1 rounded-full uppercase">Kuala Lumpur</span>
+                </div>
+                <h4 class="clinic-name text-xl font-bold text-[#1A2E44] mb-2">Dr. Shanthi's Skin Specialist Clinic</h4>
+                <p class="text-sm text-gray-500 mb-6 flex items-start">
+                    <svg class="w-4 h-4 mr-2 mt-1 text-[#0094D4]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
+                    Pantai Hospital, Kuala Lumpur
+                </p>
+                <a href="tel:+60322960000" class="block text-center border-2 border-[#0094D4] text-[#0094D4] py-3 rounded-xl font-bold hover:bg-[#0094D4] hover:text-white transition">Contact</a>
+            </div>
+
+            <div class="clinic-item bg-white rounded-[32px] p-8 border border-gray-100 shadow-sm clinic-card transition" data-state="selangor">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-3xl">🏢</div>
+                    <span class="bg-green-100 text-green-600 text-[10px] font-black px-3 py-1 rounded-full uppercase">Selangor</span>
+                </div>
+                <h4 class="clinic-name text-xl font-bold text-[#1A2E44] mb-2">Ko Skin Specialist (Subang Jaya)</h4>
+                <p class="text-sm text-gray-500 mb-6 flex items-start">
+                    <svg class="w-4 h-4 mr-2 mt-1 text-[#0094D4]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
+                    Subang Jaya, Selangor
+                </p>
+                <a href="tel:+60356370128" class="block text-center border-2 border-[#0094D4] text-[#0094D4] py-3 rounded-xl font-bold hover:bg-[#0094D4] hover:text-white transition">Contact</a>
+            </div>
+
+            <div id="dynamicClinics" class="contents"></div>
+
+            <div id="kkmCard" class="bg-blue-900 rounded-[32px] p-8 text-white shadow-xl flex flex-col justify-between">
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Government Hospital (MOH)</h4>
+                    <p class="text-blue-200 text-sm leading-relaxed mb-6">Obtain a referral from a Health Clinic (Klinik Kesihatan) for treatment at the Dermatology Department of a General Hospital at minimal cost.</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded-2xl border border-white/20 mb-6">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-blue-300">Tips</p>
+                    <p class="text-xs mt-1">Ideal for long-term chronic treatment management.</p>
+                </div>
+                <a href="https://www.moh.gov.my" target="_blank" class="block text-center bg-white text-blue-900 py-3 rounded-xl font-bold hover:bg-gray-100 transition">Official MOH Website</a>
+            </div>
+
+        </div>
+
+        <div class="mt-24 max-w-3xl mx-auto">
+            <h3 class="text-2xl font-bold text-[#1A2E44] mb-8 text-center">Frequently Asked Questions (FAQ)</h3>
+            <div class="space-y-4">
+                <details class="group bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden transition">
+                    <summary class="p-6 cursor-pointer font-bold flex justify-between items-center list-none hover:bg-gray-50">
+                        What is the cost of seeing a skin specialist in Malaysia?
+                        <span class="transition group-open:rotate-180">▼</span>
+                    </summary>
+                    <div class="p-6 pt-0 text-sm text-gray-500 leading-relaxed">
+                        At private clinics, consultation fees start from RM80 - RM250. At government hospitals, the cost is only RM5 (with a valid referral letter).
+                    </div>
+                </details>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-white border-t py-12 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">AllergyGuide.My</p>
+            <p class="text-gray-400 text-xs">© 2026 Independent Malaysia Skin Specialist Directory.</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCCPVG-1Cn6MRt9c-AWUMSiJOf_i4DqdTA",
+            authDomain: "allergyguide-c9ed9.firebaseapp.com",
+            projectId: "allergyguide-c9ed9",
+            databaseURL: "https://allergyguide-c9ed9-default-rtdb.asia-southeast1.firebasedatabase.app",
+            appId: "1:364105086732:web:4f45ed7968f9af0ced7b29"
+        };
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const dbRef = ref(db, 'clinics');
+
+        onValue(dbRef, (snapshot) => {
+            const dynamicContainer = document.getElementById('dynamicClinics');
+            dynamicContainer.innerHTML = "";
+            const data = snapshot.val();
+            
+            if(data) {
+                for (let id in data) {
+                    const clinic = data[id];
+                    dynamicContainer.innerHTML += `
+                        <div class="clinic-item bg-white rounded-[32px] p-8 border border-gray-100 shadow-sm clinic-card transition fade-in" data-state="${clinic.state.toLowerCase()}">
+                            <div class="flex justify-between items-start mb-6">
+                                <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-3xl">🏥</div>
+                                <span class="bg-green-100 text-green-600 text-[10px] font-black px-3 py-1 rounded-full uppercase">${clinic.state}</span>
+                            </div>
+                            <h4 class="clinic-name text-xl font-bold text-[#1A2E44] mb-2">${clinic.name}</h4>
+                            <p class="text-sm text-gray-500 mb-6 flex items-start">
+                                <svg class="w-4 h-4 mr-2 mt-1 text-[#0094D4]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
+                                ${clinic.state}, Malaysia
+                            </p>
+                            <a href="tel:${clinic.phone}" class="block text-center border-2 border-[#0094D4] text-[#0094D4] py-3 rounded-xl font-bold hover:bg-[#0094D4] hover:text-white transition">Contact</a>
+                        </div>
+                    `;
+                }
+            }
+            filterClinics();
+        });
+    </script>
+
+    <script>
+        function filterClinics() {
+            const searchVal = document.getElementById('searchInput').value.toLowerCase();
+            const stateVal = document.getElementById('stateFilter').value.toLowerCase();
+            const clinics = document.querySelectorAll('.clinic-item');
+            let count = 0;
+
+            clinics.forEach(clinic => {
+                const name = clinic.querySelector('.clinic-name').innerText.toLowerCase();
+                const content = clinic.innerText.toLowerCase();
+                const state = clinic.getAttribute('data-state').toLowerCase();
+
+                const matchSearch = name.includes(searchVal) || content.includes(searchVal);
+                const matchState = (stateVal === 'all') || (state === stateVal);
+
+                if (matchSearch && matchState) {
+                    clinic.style.display = 'block';
+                    count++;
+                } else {
+                    clinic.style.display = 'none';
+                }
+            });
+
+            const resultText = document.getElementById('resultCount');
+            if(searchVal !== "" || stateVal !== "all") {
+                resultText.innerText = `Found ${count} skin specialist clinics.`;
+            } else {
+                resultText.innerText = "";
+            }
+        }
+    </script>
+</body>
+</html>

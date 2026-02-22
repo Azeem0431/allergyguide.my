@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drug Allergy Details | AllergyGuide.my</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .drug-gradient { background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%); }
+        .warning-pulse { animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-gray-800">
+
+    <header class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+               <a href="en-categories.html" class="text-gray-500 hover:text-[#0094D4] transition p-2 hover:bg-gray-100 rounded-full">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </a>
+                <h1 class="text-2xl font-extrabold text-[#0094D4]">AllergyGuide.My</h1>
+            </div>
+            <div class="hidden md:block">
+                <span class="text-xs font-bold bg-yellow-100 text-yellow-700 px-4 py-1 rounded-full uppercase">Category: Medicine Safety</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="drug-gradient py-20 text-white relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <nav class="flex mb-6 text-xs font-bold text-yellow-100 uppercase tracking-widest">
+                <a href="en-firstpage.html" class="hover:text-white">Home</a>
+                <span class="mx-2">›</span>
+                <a href="en-categories.html" class="hover:text-white">Categories</a>
+                <span class="mx-2">›</span>
+                <span class="text-yellow-900">Drug Allergy</span>
+            </nav>
+            <h2 class="text-5xl font-black mb-6 leading-tight text-yellow-950">Drug Allergy: <br>Identify & Prevent</h2>
+            <p class="text-yellow-900 text-lg max-w-2xl leading-relaxed font-medium">
+                Drug allergies can happen to anyone, at any time. It is not just a common side effect, but a serious immune system reaction.
+            </p>
+        </div>
+        <div class="absolute right-0 bottom-0 opacity-10 text-[250px] font-black leading-none uppercase select-none">DRUGS</div>
+    </section>
+
+    <main class="max-w-5xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            
+            <div class="lg:col-span-2 space-y-12">
+                
+                <div class="bg-white rounded-[40px] p-8 shadow-sm border border-slate-200">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="w-10 h-10 bg-yellow-500 text-white rounded-xl flex items-center justify-center mr-4 shadow-lg text-lg">⚖️</span>
+                        Allergy vs Side Effect
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="p-5 bg-blue-50 rounded-2xl">
+                            <h4 class="font-bold text-blue-800 mb-2">Side Effects</h4>
+                            <p class="text-xs text-blue-700 leading-relaxed">Expected and common. <br>Example: Drowsiness after cold medicine or stomach upset after antibiotics.</p>
+                        </div>
+                        <div class="p-5 bg-red-50 rounded-2xl">
+                            <h4 class="font-bold text-red-800 mb-2">Drug Allergy</h4>
+                            <p class="text-xs text-red-700 leading-relaxed">Unexpected immune reaction. <br>Example: Itchy rash (Hives), swollen lips, or shortness of breath (Anaphylaxis).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16">
+                    <h3 class="text-3xl font-bold text-slate-900 mb-8 text-center">When Will Reactions Appear?</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-3xl shadow-sm border-b-4 border-red-500">
+                            <span class="text-red-500 font-bold text-sm uppercase tracking-widest">Immediate</span>
+                            <h4 class="text-xl font-bold mt-2">Minutes to Hours</h4>
+                            <p class="text-gray-600 text-sm mt-3 italic">Usually anaphylaxis, hives, or breathing difficulty. Occurs immediately after ingestion or injection.</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-3xl shadow-sm border-b-4 border-orange-400">
+                            <span class="text-orange-400 font-bold text-sm uppercase tracking-widest">Delayed</span>
+                            <h4 class="text-xl font-bold mt-2">Hours to Days</h4>
+                            <p class="text-gray-600 text-sm mt-3 italic">Standard red rashes or itching. Sometimes takes 2-3 days to fully manifest.</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-3xl shadow-sm border-b-4 border-purple-500">
+                            <span class="text-purple-500 font-bold text-sm uppercase tracking-widest">Very Late</span>
+                            <h4 class="text-xl font-bold mt-2">1 to 3 Weeks</h4>
+                            <p class="text-gray-600 text-sm mt-3 italic">Serious reactions like SJS or DRESS. Involves fever and internal organ damage.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16 bg-blue-900 rounded-[40px] p-10 text-white">
+                    <h3 class="text-2xl font-bold mb-8 flex items-center">
+                        <span class="mr-3">💡</span> Drug Allergy: Myths vs Facts
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="flex gap-4 items-start border-b border-blue-800 pb-4">
+                            <div class="bg-red-500/20 text-red-300 p-2 rounded-lg font-bold">MYTH</div>
+                            <p class="text-sm">"If I wasn't allergic to this medicine before, I will never be allergic to it."</p>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-green-500/20 text-green-300 p-2 rounded-lg font-bold">FACT</div>
+                            <p class="text-sm italic text-blue-100 uppercase tracking-wide">Allergies can develop at any time, even if you have taken the same medication before without issues.</p>
+                        </div>
+                        <hr class="border-blue-800">
+                        <div class="flex gap-4 items-start border-b border-blue-800 pb-4">
+                            <div class="bg-red-500/20 text-red-300 p-2 rounded-lg font-bold">MYTH</div>
+                            <p class="text-sm">"Herbal or traditional medicines do not cause allergies."</p>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-green-500/20 text-green-300 p-2 rounded-lg font-bold">FACT</div>
+                            <p class="text-sm italic text-blue-100 uppercase tracking-wide">Natural ingredients can also trigger severe immune reactions in certain individuals.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold text-slate-900 mb-6">How is an Allergy Confirmed?</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Don't guess. An Allergy Specialist (Allergist) will conduct clinical tests to confirm your allergy type:</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center text-sm font-semibold text-slate-700">
+                                <span class="w-2 h-2 bg-[#0094D4] rounded-full mr-3"></span>
+                                Skin Prick Test
+                            </li>
+                            <li class="flex items-center text-sm font-semibold text-slate-700">
+                                <span class="w-2 h-2 bg-[#0094D4] rounded-full mr-3"></span>
+                                Patch Test
+                            </li>
+                            <li class="flex items-center text-sm font-semibold text-slate-700">
+                                <span class="w-2 h-2 bg-[#0094D4] rounded-full mr-3"></span>
+                                Blood Test (Specific IgE)
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-yellow-50 p-8 rounded-[40px] border-2 border-dashed border-yellow-200">
+                        <p class="text-yellow-800 font-bold mb-4 text-center">Important Note!</p>
+                        <p class="text-xs text-yellow-700 leading-relaxed text-center italic">
+                            "Only perform allergy tests at hospitals or specialist clinics equipped with emergency resuscitation kits. Never attempt self-testing at home!"
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-8">High-Risk Medications</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex items-start p-6 bg-white rounded-3xl border border-slate-100 shadow-sm hover:border-yellow-400 transition">
+                            <div class="text-2xl mr-4">🧫</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Penicillin Group</h4>
+                                <p class="text-xs text-gray-500 mt-1">The most common cause of antibiotic allergies in Malaysia.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-6 bg-white rounded-3xl border border-slate-100 shadow-sm hover:border-yellow-400 transition">
+                            <div class="text-2xl mr-4">💊</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">NSAIDs (Painkillers)</h4>
+                                <p class="text-xs text-gray-500 mt-1">Aspirin, Ibuprofen, Naproxen, and Mefenamic Acid (Ponstan).</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-6 bg-white rounded-3xl border border-slate-100 shadow-sm hover:border-yellow-400 transition">
+                            <div class="text-2xl mr-4">⚡</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Anticonvulsants</h4>
+                                <p class="text-xs text-gray-500 mt-1">Examples: Carbamazepine and Phenytoin.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-6 bg-white rounded-3xl border border-slate-100 shadow-sm hover:border-yellow-400 transition">
+                            <div class="text-2xl mr-4">🧪</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Gout Medication</h4>
+                                <p class="text-xs text-gray-500 mt-1">Example: Allopurinol (can cause severe skin reactions).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-red-900 rounded-[40px] p-10 text-white shadow-2xl relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold mb-6">Dangerous Skin Reactions (SCAR)</h3>
+                        <p class="text-sm opacity-90 mb-8">Seek immediate hospital care if you develop a rash accompanied by blisters and high fever after taking a new medication:</p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="border-l-2 border-red-400 pl-4">
+                                <h4 class="font-bold text-red-300">SJS / TEN</h4>
+                                <p class="text-[11px] opacity-80 uppercase tracking-widest mt-1 italic">Stevens-Johnson Syndrome</p>
+                            </div>
+                            <div class="border-l-2 border-red-400 pl-4">
+                                <h4 class="font-bold text-red-300">DRESS Syndrome</h4>
+                                <p class="text-[11px] opacity-80 uppercase tracking-widest mt-1 italic">Organ Failure Risk</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -right-10 -bottom-10 text-9xl opacity-10 rotate-12">⚠️</div>
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                
+                <div class="bg-white rounded-[32px] p-8 shadow-md border-t-8 border-yellow-500">
+                    <h4 class="font-black text-xl mb-4">Allergy Card</h4>
+                    <p class="text-xs text-gray-500 leading-relaxed mb-6">
+                        If you have a drug allergy, you <strong>MUST</strong> carry an allergy card or have it recorded in the <strong>MySejahtera</strong> app.
+                    </p>
+                    <div class="p-4 bg-slate-50 border border-dashed border-slate-300 rounded-2xl text-center">
+                        <p class="text-[10px] text-gray-400 font-bold mb-2">SAMPLE CARD</p>
+                        <div class="bg-yellow-100 p-3 rounded-lg text-left">
+                            <p class="text-[10px] font-black text-yellow-800">ALLERGY ALERT!</p>
+                            <p class="text-[9px] text-yellow-700">Patient is allergic to:</p>
+                            <p class="font-bold text-sm text-red-600 uppercase">PENICILLIN</p>
+                        </div>
+                    </div>
+                </div>
+                    
+                <div class="bg-slate-900 rounded-[32px] p-8 text-white">
+                    <h4 class="font-bold mb-4 italic text-yellow-400">Safety Tips:</h4>
+                    <ul class="text-xs space-y-4">
+                        <li class="flex items-start">
+                            <span class="mr-3">✅</span>
+                            <span>Always keep a photo of the medication you are allergic to on your phone.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3">✅</span>
+                            <span>Ask your doctor if new medications have 'cross-reactivity' with your known allergies.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3">✅</span>
+                            <span>Never buy unlabeled medications or 'mixed' pills from unauthorized vendors.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="p-6 bg-blue-50 border border-blue-100 rounded-[32px]">
+                    <h4 class="text-blue-800 font-bold text-sm mb-2">Cross-Reactivity</h4>
+                    <p class="text-[11px] text-blue-600 leading-relaxed italic">
+                        "Sometimes if you are allergic to one drug, your body may react to other drugs within the same chemical family."
+                    </p>
+                </div>
+
+                <div class="mt-12 p-8 bg-orange-50 border-2 border-orange-200 rounded-[40px]">
+                    <h3 class="text-2xl font-bold text-orange-800 mb-4 flex items-center">
+                        <span class="mr-3">🚨</span> Immediate Actions if Allergic
+                    </h3>
+                    <ol class="list-decimal list-inside space-y-3 text-orange-900 font-medium">
+                        <li>Stop taking the medication immediately.</li>
+                        <li>Do not wait for symptoms to worsen; take photos of the rash/swelling for the doctor.</li>
+                        <li>Seek medical help at the nearest Clinic or Emergency Room (A&E).</li>
+                        <li>Bring the suspected medication or its packaging with you.</li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="mt-20 flex flex-col items-center">
+            <h3 class="text-2xl font-bold mb-8">What's Next?</h3>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="en-rawatan-lanjut.html" class="px-10 py-4 bg-yellow-600 text-white rounded-full font-bold shadow-lg hover:bg-yellow-700 transition transform hover:scale-105">Alternative Medicines</a>
+                <a href="en-categories.html" class="px-10 py-4 bg-white border-2 border-slate-200 text-slate-600 rounded-full font-bold hover:bg-slate-50 transition">View Other Categories</a>
+            </div>
+            <a href="en-emergency-contacts.html" class="mt-6 text-red-600 font-bold text-sm hover:underline italic">Click Here for Emergency Reactions!</a>
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-white py-16 px-6 text-center">
+        <h2 class="text-2xl font-black mb-4">AllergyGuide.My</h2>
+        <p class="text-xs opacity-50 mb-8 max-w-xl mx-auto italic">This information is for general reference only. Please consult a Medical Professional/Allergy Specialist for valid Skin Prick Testing.</p>
+        <div class="text-[10px] opacity-30">© 2026 AllergyGuide.my - Patient Safety is Our Priority</div>
+    </footer>
+
+</body>
+</html>

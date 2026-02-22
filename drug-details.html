@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drug Allergy Details | AllergyGuide.my</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .drug-gradient { background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%); }
+        .warning-pulse { animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-gray-800">
+
+    <header class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+               <a href="categories.html" class="text-gray-500 hover:text-[#0094D4] transition p-2 hover:bg-gray-100 rounded-full">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </a>
+                <h1 class="text-2xl font-extrabold text-[#0094D4]">AllergyGuide.My</h1>
+            </div>
+            <div class="hidden md:block">
+                <span class="text-xs font-bold bg-yellow-100 text-yellow-700 px-4 py-1 rounded-full uppercase">Kategori: Keselamatan Ubat</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="drug-gradient py-20 text-white relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <nav class="flex mb-6 text-xs font-bold text-yellow-100 uppercase tracking-widest">
+                <a href="FirstPage.HTML" class="hover:text-white">Home</a>
+                <span class="mx-2">›</span>
+                <a href="categories.html" class="hover:text-white">Categories</a>
+                <span class="mx-2">›</span>
+                <span class="text-yellow-900">Drug Allergy</span>
+            </nav>
+            <h2 class="text-5xl font-black mb-6 leading-tight text-yellow-950">Alahan Ubat: <br>Kenali & Cegah</h2>
+            <p class="text-yellow-900 text-lg max-w-2xl leading-relaxed font-medium">
+                Alahan ubat boleh berlaku kepada sesiapa sahaja, pada bila-bila masa. Ia bukan sekadar kesan sampingan biasa, tetapi tindak balas imun yang serius.
+            </p>
+        </div>
+        <div class="absolute right-0 bottom-0 opacity-10 text-[250px] font-black leading-none uppercase select-none">DRUGS</div>
+    </section>
+
+    <main class="max-w-5xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            
+            <div class="lg:col-span-2 space-y-12">
+                
+                <div class="bg-white rounded-[40px] p-8 shadow-sm border border-slate-200">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="w-10 h-10 bg-yellow-500 text-white rounded-xl flex items-center justify-center mr-4 shadow-lg text-lg">⚖️</span>
+                        Alahan vs Kesan Sampingan
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="p-5 bg-blue-50 rounded-2xl">
+                            <h4 class="font-bold text-blue-800 mb-2">Kesan Sampingan</h4>
+                            <p class="text-xs text-blue-700 leading-relaxed">Dijangkakan dan biasa berlaku. <br>Contoh: Mengantuk selepas ubat selesema atau sakit perut selepas antibiotik.</p>
+                        </div>
+                        <div class="p-5 bg-red-50 rounded-2xl">
+                            <h4 class="font-bold text-red-800 mb-2">Alahan Ubat</h4>
+                            <p class="text-xs text-red-700 leading-relaxed">Tindak balas imun luar jangka. <br>Contoh: Ruam gatal (Hives), bengkak bibir, atau sesak nafas (Anaphylaxis).</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-16">
+                    <h3 class="text-3xl font-bold text-slate-900 mb-8 text-center">Bila Reaksi Akan Muncul?</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-3xl shadow-sm border-b-4 border-red-500">
+                            <span class="text-red-500 font-bold text-sm uppercase tracking-widest">Segera</span>
+                            <h4 class="text-xl font-bold mt-2">Minit ke Jam</h4>
+                            <p class="text-gray-600 text-sm mt-3 italic">Biasanya anafilaksis, gegata (hives), atau sesak nafas. Berlaku sejurus selepas makan atau suntikan ubat.</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-3xl shadow-sm border-b-4 border-orange-400">
+                            <span class="text-orange-400 font-bold text-sm uppercase tracking-widest">Lewat</span>
+                            <h4 class="text-xl font-bold mt-2">Jam ke Hari</h4>
+                            <p class="text-gray-600 text-sm mt-3 italic">Ruam merah atau gatal-gatal biasa. Kadangkala mengambil masa 2-3 hari untuk muncul sepenuhnya.</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-3xl shadow-sm border-b-4 border-purple-500">
+                            <span class="text-purple-500 font-bold text-sm uppercase tracking-widest">Sangat Lewat</span>
+                            <h4 class="text-xl font-bold mt-2">1 ke 3 Minggu</h4>
+                            <p class="text-gray-600 text-sm mt-3 italic">Reaksi serius seperti SJS atau DRESS. Melibatkan demam dan kerosakan organ dalaman.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-16 bg-blue-900 rounded-[40px] p-10 text-white">
+                <h3 class="text-2xl font-bold mb-8 flex items-center">
+                    <span class="mr-3">💡</span> Mitos vs Fakta Alahan Ubat
+                </h3>
+                <div class="space-y-6">
+                    <div class="flex gap-4 items-start border-b border-blue-800 pb-4">
+                        <div class="bg-red-500/20 text-red-300 p-2 rounded-lg font-bold">MITOS</div>
+                        <p class="text-sm">"Kalau dulu saya tak alah ubat ini, sampai bila-bila saya tak akan alah."</p>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="bg-green-500/20 text-green-300 p-2 rounded-lg font-bold">FAKTA</div>
+                        <p class="text-sm italic text-blue-100 uppercase tracking-wide">Alahan boleh bermula pada bila-bila masa walaupun anda pernah mengambil ubat yang sama sebelum ini tanpa masalah.</p>
+                    </div>
+                    <hr class="border-blue-800">
+                    <div class="flex gap-4 items-start border-b border-blue-800 pb-4">
+                        <div class="bg-red-500/20 text-red-300 p-2 rounded-lg font-bold">MITOS</div>
+                        <p class="text-sm">"Ubat herba atau tradisional tiada alahan."</p>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="bg-green-500/20 text-green-300 p-2 rounded-lg font-bold">FAKTA</div>
+                        <p class="text-sm italic text-blue-100 uppercase tracking-wide">Bahan semulajadi juga boleh mencetuskan reaksi imun yang teruk bagi sesetengah individu.</p>
+                    </div>
+                </div>
+                
+            </div>
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    <div>
+        <h3 class="text-3xl font-bold text-slate-900 mb-6">Bagaimana Alahan Disahkan?</h3>
+        <p class="text-gray-600 mb-6 leading-relaxed">Jangan teka sendiri. Pakar Alahan (Allergist) akan menjalankan ujian klinikal untuk memastikan jenis alahan anda:</p>
+        <ul class="space-y-4">
+            <li class="flex items-center text-sm font-semibold text-slate-700">
+                <span class="w-2 h-2 bg-[#0094D4] rounded-full mr-3"></span>
+                Ujian Cukit Kulit (Skin Prick Test)
+            </li>
+            <li class="flex items-center text-sm font-semibold text-slate-700">
+                <span class="w-2 h-2 bg-[#0094D4] rounded-full mr-3"></span>
+                Ujian Tampalan (Patch Test)
+            </li>
+            <li class="flex items-center text-sm font-semibold text-slate-700">
+                <span class="w-2 h-2 bg-[#0094D4] rounded-full mr-3"></span>
+                Ujian Darah (Specific IgE)
+            </li>
+        </ul>
+    </div>
+    <div class="bg-yellow-50 p-8 rounded-[40px] border-2 border-dashed border-yellow-200">
+        <p class="text-yellow-800 font-bold mb-4 text-center">Nota Penting!</p>
+        <p class="text-xs text-yellow-700 leading-relaxed text-center italic">
+            "Hanya lakukan ujian alahan di hospital atau klinik pakar yang mempunyai kelengkapan kecemasan (Resuscitation kit). Jangan lakukan ujian sendiri di rumah!"
+        </p>
+    </div>
+</div>
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-8">Ubat Berisiko Tinggi</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex items-start p-6 bg-white rounded-3xl border border-slate-100 shadow-sm hover:border-yellow-400 transition">
+                            <div class="text-2xl mr-4">🧫</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Kumpulan Penicillin</h4>
+                                <p class="text-xs text-gray-500 mt-1">Punca paling biasa bagi alahan antibiotik di Malaysia.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-6 bg-white rounded-3xl border border-slate-100 shadow-sm hover:border-yellow-400 transition">
+                            <div class="text-2xl mr-4">💊</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">NSAIDs (Ubat Tahan Sakit)</h4>
+                                <p class="text-xs text-gray-500 mt-1">Aspirin, Ibuprofen, Naproxen, dan Mefenamic Acid (Ponstan).</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-6 bg-white rounded-3xl border border-slate-100 shadow-sm hover:border-yellow-400 transition">
+                            <div class="text-2xl mr-4">⚡</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Ubat Sawan (Anticonvulsants)</h4>
+                                <p class="text-xs text-gray-500 mt-1">Contoh: Carbamazepine dan Phenytoin.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-6 bg-white rounded-3xl border border-slate-100 shadow-sm hover:border-yellow-400 transition">
+                            <div class="text-2xl mr-4">🧪</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Ubat Gout</h4>
+                                <p class="text-xs text-gray-500 mt-1">Contoh: Allopurinol (boleh menyebabkan reaksi kulit teruk).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-red-900 rounded-[40px] p-10 text-white shadow-2xl relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold mb-6">Reaksi Kulit Berbahaya (SCAR)</h3>
+                        <p class="text-sm opacity-90 mb-8">Segera ke hospital jika anda mengalami ruam disertai lepuh (blisters) dan demam tinggi selepas mengambil ubat baru:</p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="border-l-2 border-red-400 pl-4">
+                                <h4 class="font-bold text-red-300">SJS / TEN</h4>
+                                <p class="text-[11px] opacity-80 uppercase tracking-widest mt-1 italic">Stevens-Johnson Syndrome</p>
+                            </div>
+                            <div class="border-l-2 border-red-400 pl-4">
+                                <h4 class="font-bold text-red-300">DRESS Syndrome</h4>
+                                <p class="text-[11px] opacity-80 uppercase tracking-widest mt-1 italic">Organ Failure Risk</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -right-10 -bottom-10 text-9xl opacity-10 rotate-12">⚠️</div>
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                
+                <div class="bg-white rounded-[32px] p-8 shadow-md border-t-8 border-yellow-500">
+                    <h4 class="font-black text-xl mb-4">Kad Alahan</h4>
+                    <p class="text-xs text-gray-500 leading-relaxed mb-6">
+                        Jika anda mempunyai alahan ubat, anda <strong>WAJIB</strong> memiliki kad alahan atau rekod di dalam aplikasi <strong>MySejahtera</strong>.
+                    </p>
+                    <div class="p-4 bg-slate-50 border border-dashed border-slate-300 rounded-2xl text-center">
+                        <p class="text-[10px] text-gray-400 font-bold mb-2">CONTOH KAD</p>
+                        <div class="bg-yellow-100 p-3 rounded-lg text-left">
+                            <p class="text-[10px] font-black text-yellow-800">ALLERGY ALERT!</p>
+                            <p class="text-[9px] text-yellow-700">Patient is allergic to:</p>
+                            <p class="font-bold text-sm text-red-600 uppercase">PENICILLIN</p>
+                        </div>
+                    </div>
+                </div>
+                    
+                <div class="bg-slate-900 rounded-[32px] p-8 text-white">
+                    <h4 class="font-bold mb-4 italic text-yellow-400">Tips Keselamatan:</h4>
+                    <ul class="text-xs space-y-4">
+                        <li class="flex items-start">
+                            <span class="mr-3">✅</span>
+                            <span>Sentiasa simpan gambar ubat yang anda alah di dalam telefon.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3">✅</span>
+                            <span>Tanya doktor jika ubat baru mempunyai 'cross-reactivity' dengan alahan lama.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3">✅</span>
+                            <span>Jangan beli ubat tanpa label atau ubat 'campur' di kedai tidak sah.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="p-6 bg-blue-50 border border-blue-100 rounded-[32px]">
+                    <h4 class="text-blue-800 font-bold text-sm mb-2">Cross-Reactivity</h4>
+                    <p class="text-[11px] text-blue-600 leading-relaxed italic">
+                        "Kadangkala jika anda alah kepada satu ubat, badan anda mungkin akan bertindak balas terhadap ubat lain dalam kumpulan yang sama."
+                    </p>
+                </div>
+                <div class="mt-12 p-8 bg-orange-50 border-2 border-orange-200 rounded-[40px]">
+                    <h3 class="text-2xl font-bold text-orange-800 mb-4 flex items-center">
+                        <span class="mr-3">🚨</span> Tindakan Segera Jika Alah
+                    </h3>
+                    <ol class="list-decimal list-inside space-y-3 text-orange-900 font-medium">
+                        <li>Hentikan pengambilan ubat tersebut dengan serta-merta.</li>
+                        <li>Jangan tunggu gejala menjadi teruk; ambil gambar ruam/bengkak untuk rujukan doktor.</li>
+                        <li>Dapatkan bantuan perubatan di Klinik atau Kecemasan (A&E) berdekatan.</li>
+                        <li>Bawa ubat atau bungkusan ubat yang disyaki menjadi punca alahan.</li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="mt-20 flex flex-col items-center">
+            <h3 class="text-2xl font-bold mb-8">Apa Tindakan Anda?</h3>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="rawatan-lanjut.html" class="px-10 py-4 bg-yellow-600 text-white rounded-full font-bold shadow-lg hover:bg-yellow-700 transition transform hover:scale-105">Ubat Alternatif</a>
+                <a href="categories.html" class="px-10 py-4 bg-white border-2 border-slate-200 text-slate-600 rounded-full font-bold hover:bg-slate-50 transition">Lihat Kategori Lain</a>
+            </div>
+            <a href="emergency-contacts.html" class="mt-6 text-red-600 font-bold text-sm hover:underline italic">Klik Sini Jika Berlaku Reaksi Kecemasan!</a>
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-white py-16 px-6 text-center">
+        <h2 class="text-2xl font-black mb-4">AllergyGuide.My</h2>
+        <p class="text-xs opacity-50 mb-8 max-w-xl mx-auto italic">Informasi ini hanyalah rujukan am. Sila dapatkan nasihat Pakar Perubatan/Pakar Alahan untuk ujian alahan kulit (Skin Prick Test) yang sah.</p>
+        <div class="text-[10px] opacity-30">© 2026 AllergyGuide.my - Keselamatan Pesakit Keutamaan Kami</div>
+    </footer>
+
+</body>
+</html>
